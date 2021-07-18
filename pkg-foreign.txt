@@ -1,0 +1,4 @@
+slack-desktop
+spotify
+terminus-font-ttf
+yay
