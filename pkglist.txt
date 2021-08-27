@@ -1,3 +1,4 @@
+alacritty
 autoconf
 automake
 base
@@ -7,7 +8,9 @@ bluez
 bluez-utils
 cargo-edit
 dhcpcd
+docker
 evince
+exa
 fakeroot
 fcitx
 fcitx-configtool
@@ -18,6 +21,7 @@ file
 findutils
 firefox
 flex
+fuse-overlayfs
 gawk
 gcc
 gettext
@@ -32,6 +36,7 @@ i3blocks
 i3lock
 i3status
 intel-ucode
+julia
 libtool
 linux
 linux-firmware
@@ -43,6 +48,7 @@ neovim
 noto-fonts
 noto-fonts-cjk
 npm
+ntfs-3g
 pacman
 patch
 pavucontrol
