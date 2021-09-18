@@ -52,9 +52,5 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-case $2 in 
-	"" | "fcitx" ) fcitx-autostart & exec i3 ;;
-	"" | "i3" ) exec i3 ;;
-	"exec" ) exec $3 ;;
-	* ) ;;
-esac
+fcitx &
+exec i3

@@ -1,6 +1,7 @@
 alacritty
 autoconf
 automake
+awesome-terminal-fonts
 base
 binutils
 bison
@@ -32,12 +33,15 @@ grep
 groff
 gzip
 i3-gaps
-i3blocks
 i3lock
 i3status
+i3status-rust
 intel-ucode
 julia
 libtool
+lightdm
+lightdm-gtk-greeter
+lightdm-webkit2-greeter
 linux
 linux-firmware
 m4
@@ -49,6 +53,8 @@ noto-fonts
 noto-fonts-cjk
 npm
 ntfs-3g
+ocaml
+opam
 pacman
 patch
 pavucontrol
@@ -58,6 +64,7 @@ poppler-data
 pulseaudio
 pulseaudio-alsa
 python-pip
+r
 rofi
 rustup
 sed
@@ -77,6 +84,8 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+thunar
+ttf-font-awesome
 ttf-liberation
 unarchiver
 vi
