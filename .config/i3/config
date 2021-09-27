@@ -34,9 +34,10 @@ bindsym $mod+p exec gm import -window root $(date "+screenshot/%Y%m%d-%H%M%S.png
 
 # window setting {
 # focus
-bindsym $mod+j focus left
-bindsym $mod+k focus right
-bindsym $mod+h focus down
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # kill focused window
 bindsym $mod+q kill
@@ -58,7 +59,7 @@ bindsym $mod+0 workspace 0; mode "default"
 
 # mode settings 
 bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
-bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
 bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
 bindsym $mod+m border normal; mode "move [h: left] [j: down] [k: up] [l: right] [c: center]"
 bindsym $mod+r border normal; mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow width]"
@@ -74,7 +75,7 @@ mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut 
     bindsym 2 exec --no-startup-id systemctl reboot
     bindsym 3 exec --no-startup-id systemctl poweroff
 
-    bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+    bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
     bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
     bindsym $mod+m border normal; mode "move [h: left] [j: down] [k: up] [l: right] [c: center]"
     bindsym $mod+r border normal; mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow width]"
@@ -102,7 +103,7 @@ mode "split [h: horizontal] [v: vertical]" {
     bindsym v split vertical; mode "default"
 
     bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
-    bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+    bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
     bindsym $mod+m border normal; mode "move [h: left] [j: down] [k: up] [l: right] [c: center]"
     bindsym $mod+r border normal; mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow width]"
     bindsym $mod+w mode "shift_workspace"
@@ -117,7 +118,7 @@ mode "move [h: left] [j: down] [k: up] [l: right] [c: center]" {
     bindsym c move absolute position center
 
     bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
-    bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+    bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
     bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
     bindsym $mod+r border normal; mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow width]"
     bindsym $mod+w mode "shift_workspace"
@@ -145,7 +146,7 @@ mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow widt
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
-        bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+        bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
         bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
         bindsym $mod+m border normal; mode "move [h: left] [j: down] [k: up] [l: right] [c: center]"
         bindsym $mod+w mode "shift_workspace"
@@ -167,7 +168,7 @@ mode "shift_workspace" {
     # }
 
     bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
-    bindsym $mod+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
+    bindsym $Mod1+l mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]"
     bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
     bindsym $mod+m border normal; mode "move [h: left] [j: down] [k: up] [l: right] [c: center]"
     bindsym $mod+r border normal; mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow width]"

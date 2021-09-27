@@ -4,7 +4,7 @@ icons = "awesome"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+format_mem = "{mem_used} {mem_used_percents}"
 format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
 icons =true
 clickable = true
@@ -29,7 +29,7 @@ format = "{utilization} {frequency}"
 
 [[block]]
 block = "net"
-format = "{ssid} {signal_strength} {ip} {speed_down;K*b}"
+format = "{ssid} {ip}"
 interval = 5
 
 [[block]]

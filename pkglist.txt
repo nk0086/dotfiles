@@ -58,6 +58,7 @@ opam
 pacman
 patch
 pavucontrol
+pdfpc
 picom
 pkgconf
 poppler-data
