@@ -29,7 +29,7 @@ format = "{utilization} {frequency}"
 
 [[block]]
 block = "net"
-format = "{ssid} {ip}"
+format = "{ssid}"
 interval = 5
 
 [[block]]

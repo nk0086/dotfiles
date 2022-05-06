@@ -1,5 +1,1 @@
-slack-desktop
-spotify
-terminus-font-ttf
-webex-bin
-yay
+notion-app

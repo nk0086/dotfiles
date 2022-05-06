@@ -28,7 +28,7 @@ gaps outer $default_outer_gaps
 # application etc..
 exec --no-startup-id "feh --bg-scale $HOME/screenshot/zonbi.jpg"
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec gm import -window root $(date "+screenshot/%Y%m%d-%H%M%S.png")
 
@@ -46,16 +46,16 @@ bindsym $mod+q kill
 bindsym $mod+f fullscreen toggle
 
 # switch to workspace
-bindsym $mod+1 workspace 1; mode "default"
-bindsym $mod+2 workspace 2; mode "default"
-bindsym $mod+3 workspace 3; mode "default"
-bindsym $mod+4 workspace 4; mode "default"
-bindsym $mod+5 workspace 5; mode "default"
-bindsym $mod+6 workspace 6; mode "default"
-bindsym $mod+7 workspace 7; mode "default"
-bindsym $mod+8 workspace 8; mode "default"
-bindsym $mod+9 workspace 9; mode "default"
-bindsym $mod+0 workspace 0; mode "default"
+bindsym $mod+Shift+a workspace 1; mode "default"
+bindsym $mod+Shift+b workspace 2; mode "default"
+bindsym $mod+Shift+c workspace 3; mode "default"
+bindsym $mod+Shift+d workspace 4; mode "default"
+bindsym $mod+Shift+e workspace 5; mode "default"
+bindsym $mod+Shift+f workspace 6; mode "default"
+bindsym $mod+Shift+g workspace 7; mode "default"
+bindsym $mod+Shift+h workspace 8; mode "default"
+bindsym $mod+Shift+j workspace 9; mode "default"
+bindsym $mod+Shift+k workspace 0; mode "default"
 
 # mode settings 
 bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
