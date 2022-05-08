@@ -47,15 +47,15 @@ bindsym $mod+f fullscreen toggle
 
 # switch to workspace
 bindsym $mod+Shift+a workspace 1; mode "default"
-bindsym $mod+Shift+b workspace 2; mode "default"
-bindsym $mod+Shift+c workspace 3; mode "default"
-bindsym $mod+Shift+d workspace 4; mode "default"
-bindsym $mod+Shift+e workspace 5; mode "default"
-bindsym $mod+Shift+f workspace 6; mode "default"
-bindsym $mod+Shift+g workspace 7; mode "default"
-bindsym $mod+Shift+h workspace 8; mode "default"
-bindsym $mod+Shift+j workspace 9; mode "default"
-bindsym $mod+Shift+k workspace 0; mode "default"
+bindsym $mod+Shift+s workspace 2; mode "default"
+bindsym $mod+Shift+d workspace 3; mode "default"
+bindsym $mod+Shift+f workspace 4; mode "default"
+bindsym $mod+Shift+g workspace 5; mode "default"
+bindsym $mod+Shift+h workspace 6; mode "default"
+bindsym $mod+Shift+j workspace 7; mode "default"
+bindsym $mod+Shift+k workspace 8; mode "default"
+bindsym $mod+Shift+l workspace 9; mode "default"
+bindsym $mod+Shift+; workspace 0; mode "default"
 
 # mode settings 
 bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
