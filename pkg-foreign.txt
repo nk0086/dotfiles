@@ -1,1 +1,4 @@
+docker-rootless-extras-bin
 notion-app
+slack-desktop
+spotify
