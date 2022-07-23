@@ -1,4 +1,8 @@
 docker-rootless-extras-bin
+google-chrome
 notion-app
+paru
 slack-desktop
 spotify
+t-rec
+zoom

@@ -17,11 +17,13 @@ alias vi='nvim'
 alias vim='nvim'
 alias bim='nvim'
 alias cim='nvim'
+alias pypy='pypy3'
 alias open='xdg-open'
 alias saty='satysfi'
 alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
 alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
 export SYSTEMD_EDITOR=nvim
+export PATH=/home/nkpr/.nimble/bin:$PATH
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh

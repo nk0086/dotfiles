@@ -16,6 +16,7 @@ b43-fwcutter
 bash
 bison
 blueman
+bluez-utils
 btrfs-progs
 bzip2
 cargo-edit
@@ -28,6 +29,7 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
+discord
 discount
 dmidecode
 dmraid
@@ -42,6 +44,7 @@ evince
 exfat-utils
 exo
 f2fs-tools
+fcitx-mozc
 feh
 ffmpeg
 ffmpegthumbnailer
@@ -61,7 +64,9 @@ glibc
 glibc-locales
 gnome-keyring
 gnome-themes-extra
+go
 gparted
+graphicsmagick
 grep
 grub
 grub-btrfs
@@ -93,6 +98,7 @@ inxi
 iproute2
 iputils
 jfsutils
+kvantum-theme-matcha
 less
 lib32-libva-intel-driver
 lib32-libva-mesa-driver
@@ -135,6 +141,7 @@ manjaro-settings-manager-notifier
 manjaro-system
 manjaro-xfce-minimal-settings
 manjaro-zsh-config
+mariadb
 matcha-gtk-theme
 mdadm
 memtest86+
@@ -160,6 +167,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
+nim
 nodejs
 noto-fonts
 npm
@@ -167,6 +175,7 @@ nss-mdns
 ntfs-3g
 ntp
 numlockx
+opam
 openresolv
 openssh
 os-prober
@@ -187,6 +196,7 @@ psmisc
 pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
+pypy3
 python-pip
 r
 reiserfsprogs
@@ -238,6 +248,7 @@ xclip
 xcursor-simpleandsoft
 xcursor-vanilla-dmz-aa
 xdg-user-dirs
+xdg-user-dirs-gtk
 xdg-utils
 xf86-input-elographics
 xf86-input-evdev
