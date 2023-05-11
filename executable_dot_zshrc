@@ -1,0 +1,56 @@
+# Use powerline
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
+PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+
+bindkey -v
+alias matlab='$HOME/MATLAB/bin/matlab'
+alias ls='ls --color=auto'
+alias vi='nvim'
+alias vim='nvim'
+alias bim='nvim'
+alias cim='nvim'
+alias pypy='pypy3'
+alias tonvim='cd $HOME/.config/nvim'
+alias open='xdg-open'
+alias lsl='ls -l'
+alias saty='satysfi'
+alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
+alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
+alias wallpaper="sh $HOME/.config/i3/wallpaper.sh"
+alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png")"
+alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
+
+export SYSTEMD_EDITOR=nvim
+export EDITOR=nvim
+export PATH=$HOME/.nimble/bin:$PATH
+export PATH=$HOME/Desktop/script:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/bin:$PATH"
+export BROWSER=google-chrome-stable
+export PATH=$HOME/.cargo/bin:$PATH
+alias anaconda="export PATH=/opt/anaconda/bin:$PATH" 
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+alias toresearch="cd $HOME/Project/research"
+alias atcoder="cd Project/atcoder"
+alias naist_vpn="sudo openvpn --config client.ovpn"
+
+# opam configuration
+#[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# opam configuration
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

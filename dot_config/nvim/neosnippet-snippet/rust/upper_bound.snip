@@ -1,0 +1,15 @@
+snippet upper_bound
+    fn upper_bound<T: PartialOrd>(array: &[T], k: T) -> usize {
+        let mut ok = array.len() as i64;
+        let mut ng = -1;
+        while (ok - ng) > 1 {
+            let mid = (ok + ng) / 2;
+            if array[mid as usize] <= k {
+                ng = mid;
+            } else {
+                ok = mid;
+            }
+        }
+        ok as usize
+    }
+

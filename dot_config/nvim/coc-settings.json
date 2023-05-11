@@ -1,0 +1,72 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+	"go",
+	"python"
+    ],
+
+    "rust-analyzer.enable":true,
+    "languageserver": {
+	"satysfi-ls": {
+    	    "command": "satysfi-language-server",
+    	    "args": [],
+    	    "filetypes": ["satysfi"]
+    	}
+    },
+    	
+    "nim": {
+	"command": "nimlsp",
+	"args": [
+	    "$HOME/.choosenim/toolchains/nim-1.6.12"
+	],
+	"rootPatterns": [
+	    "src/",
+	    ".git/"
+	],
+    	"filetypes": ["nim", "nimble"]
+    },
+
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--max-line-length=88", "--import-order-style=google", "--extend-ignore=E203, E501, W503, E401, I"],
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length=88"],
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "python.pythonPath": "python3",
+    "pyright.organizeImports.provider": "isort",
+    "isort.lineLength": 88,
+    "isort.profile": "black",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
+    "[python]": {
+	"editor.codeActionsOnSave": {
+	    "source.organizeImports": true
+    },
+
+    
+    "suggest.completionItemKindLabels": {
+	"function": "\uf794",
+    	"method":"\uf6a6",
+    	"variable": "\uf71b",
+    	"constant": "\uf8ff",
+    	"struct": "\ufb44",
+    	"class": "\uf0e8",
+    	"interface": "\ufa52",
+    	"text": "\ue612",
+    	"enum": "\uf435",
+    	"enumMember": "\uf02b",
+    	"color": "\ue22b",
+    	"property": "\ufab6",
+    	"field": "\uf93d",
+    	"unit": "\uf475",
+    	"file": "\uf471",
+    	"value": "\uf8a3",
+    	"event": "\ufacd",
+    	"folder": "\uf115",
+    	"keyword": "\uf893",
+    	"snippet": "\uf64d",
+    	"operator": "\uf915",
+    	"reference": "\uf87a",
+    	"typeParameter": "\uf278",
+    	"default": "\uf29c"
+    }
+}

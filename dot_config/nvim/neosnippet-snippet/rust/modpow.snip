@@ -1,0 +1,12 @@
+snippet modpow
+    pub fn modpow(mut base: usize, mut exp: usize, n: usize) -> usize {
+        let mut res = 1;
+        while exp > 0 {
+            if exp & 1 != 0 {
+                res = res * base % n;
+            }
+            base = base * base % n;
+            exp >>= 1;
+        }
+        res
+    }

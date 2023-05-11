@@ -1,0 +1,8 @@
+configuration {
+    modi: "combi,drun,run,window";
+    combi-modi: "drun,run,window";
+    show-icons: true;
+    focus-follows-mouse: false;
+}
+
+@theme "slate-mod"
