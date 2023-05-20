@@ -16,7 +16,6 @@ bar {
 }
 
 #default_border pixel 1
-
 for_window [class=".*"] border pixel 2
 # i3-gaps settings {
 set $default_inner_gaps 5
@@ -27,8 +26,8 @@ gaps outer $default_outer_gaps
 
 # application etc..
 exec --no-startup-id "sh $HOME/.screenlayout/default.sh"
-exec --no-startup-id "feh --bg-tile $HOME/Pictures/wallpaper/00.jpg"
-exec --no-startup-id fcitx5 -d
+exec --no-startup-id "feh --bg-scale $HOME/Pictures/wallpaper/00.jpg"
+exec --no-startup-id fcitx -d
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 bindsym $mod+Return exec wezterm
 bindsym $mod+space exec rofi -modi combi -show combi
@@ -54,6 +53,30 @@ bindsym $mod+Shift+s workspace 2; mode "default"
 bindsym $mod+Shift+d workspace 3; mode "default"
 bindsym $mod+Shift+f workspace 4; mode "default"
 bindsym $mod+Shift+g workspace 5; mode "default"
+
+bindsym $mod+Shift+h move container to workspace 1; workspace 1; mode "default"
+bindsym $mod+Shift+j move container to workspace 2; workspace 2; mode "default"
+bindsym $mod+Shift+k move container to workspace 3; workspace 3; mode "default"
+bindsym $mod+Shift+l move container to workspace 4; workspace 4; mode "default"
+bindsym $mod+Shift+semicolon move container to workspace 5; workspace 5; mode "default"
+
+#bindsym $mod+w mode "shift_workspace"
+#mode "shift_workspace" {
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#    # move container {
+#    bindsym 1 move container to workspace 1; workspace 1; mode "default"
+#    bindsym 2 move container to workspace 2; workspace 2; mode "default"
+#    bindsym 3 move container to workspace 3; workspace 3; mode "default"
+#    bindsym 4 move container to workspace 4; workspace 4; mode "default"
+#    bindsym 5 move container to workspace 5; workspace 5; mode "default"
+#    bindsym 6 move container to workspace 6; workspace 6; mode "default"
+#    bindsym 7 move container to workspace 7; workspace 7; mode "default"
+#    bindsym 8 move container to workspace 8; workspace 8; mode "default"
+#    bindsym 9 move container to workspace 9; workspace 9; mode "default"
+#    bindsym 0 move container to workspace 0; workspace 0; mode "default"
+#    # }
+#}
 
 # mode settings 
 bindsym $mod+e mode "exit [e: exit] [r: restart] [w: reload] [1: suspend] [2: reboot] [3: shut down]"
@@ -112,24 +135,6 @@ mode "resize [h: shrink width] [j: grow height] [k: shrink height] [l: grow widt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
-}
-
-bindsym $mod+w mode "shift_workspace"
-mode "shift_workspace" {
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    # move container {
-    bindsym 1 move container to workspace 1; workspace 1; mode "default"
-    bindsym 2 move container to workspace 2; workspace 2; mode "default"
-    bindsym 3 move container to workspace 3; workspace 3; mode "default"
-    bindsym 4 move container to workspace 4; workspace 4; mode "default"
-    bindsym 5 move container to workspace 5; workspace 5; mode "default"
-    bindsym 6 move container to workspace 6; workspace 6; mode "default"
-    bindsym 7 move container to workspace 7; workspace 7; mode "default"
-    bindsym 8 move container to workspace 8; workspace 8; mode "default"
-    bindsym 9 move container to workspace 9; workspace 9; mode "default"
-    bindsym 0 move container to workspace 0; workspace 0; mode "default"
-    # }
 }
 
 # Open specific applications in floating mode
