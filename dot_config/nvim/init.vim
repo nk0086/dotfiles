@@ -26,6 +26,7 @@ call jetpack#add('rcarriga/nvim-dap-ui')
 "git
 call jetpack#add('iberianpig/tig-explorer.vim')
 "language
+call jetpack#add('andreypopp/julia-repl-vim')
 call jetpack#add('JuliaEditorSupport/julia-vim')
 call jetpack#add('rust-lang/rust.vim')
 call jetpack#add('cohama/lexima.vim')
@@ -67,8 +68,8 @@ nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
-"tnoremap <C-t> <C-\><C-n><C-w>k
-"nnoremap <C-t> <C-w>v
+tnoremap <C-t> <C-\><C-n><C-w>k
+nnoremap <C-t> <C-w>v
 
 set foldmethod=manual
 set number
@@ -103,6 +104,16 @@ nnoremap <silent> <leader>G :GFiles?<CR>
 nnoremap <silent> <leader>h :History:<CR>
 nnoremap <silent> <leader>c :Commands<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+
+" vim-print-debug
+nnoremap <leader>p :call print_debug#print_debug()<cr>
+let g:print_debug_templates = {
+\   'go':         'fmt.Printf("+++ {}\n")',
+\   'python':     'print(f"+++ {}")',
+\   'rust': 	  'println!("+++ {}");',
+\   'javascript': 'console.log(`+++ {}`);',
+\   'c':          'printf("+++ {}\n");',
+\ }
 
 "rust.vim
 let g:rustfmt_autosave=1
