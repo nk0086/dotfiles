@@ -1,24 +1,21 @@
 "plugin + settings 
 call jetpack#begin()
-"clolor scheme
-call jetpack#add('cocopon/iceberg.vim')
-call jetpack#add('rebelot/kanagawa.nvim')
 "vim 
-call jetpack#add('github/copilot.vim')
-call jetpack#add('tani/vim-jetpack')
-call jetpack#add('Shougo/neosnippet.vim')
-call jetpack#add('Shougo/neosnippet-snippets')
 call jetpack#add('neoclide/coc.nvim')
-call jetpack#add('vim-skk/eskk.vim')
-call jetpack#add('simeji/winresizer')
+call jetpack#add('tani/vim-jetpack')
+call jetpack#add('github/copilot.vim')
 call jetpack#add('junegunn/fzf')
 call jetpack#add('junegunn/fzf.vim')
-call jetpack#add('tpope/vim-surround')
+call jetpack#add('lambdalisue/fern.vim')
+call jetpack#add('simeji/winresizer')
+call jetpack#add('vim-skk/eskk.vim')
+call jetpack#add('machakann/vim-sandwich')
+call jetpack#add('rhysd/clever-f.vim')
+call jetpack#add('Shougo/neosnippet.vim')
+call jetpack#add('Shougo/neosnippet-snippets')
 call jetpack#add('jeetsukumaran/vim-indentwise')
-call jetpack#add('yutkat/history-ignore.vim')
 call jetpack#add('tyru/capture.vim')
-call jetpack#add('Vigemus/iron.nvim')
-call jetpack#add('Iambdalisue/readablefold.vim')
+call jetpack#add('cohama/lexima.vim')
 "debug 
 call jetpack#add('sentriz/vim-print-debug')
 call jetpack#add('mfussenegger/nvim-dap')
@@ -29,30 +26,50 @@ call jetpack#add('iberianpig/tig-explorer.vim')
 call jetpack#add('andreypopp/julia-repl-vim')
 call jetpack#add('JuliaEditorSupport/julia-vim')
 call jetpack#add('rust-lang/rust.vim')
-call jetpack#add('cohama/lexima.vim')
 call jetpack#add('qnighy/satysfi.vim')
 call jetpack#add('alaviss/nim.nvim')
+call jetpack#add('fatih/vim-go')
+call jetpack#add('mattn/emmet-vim')
+"clolor scheme
+call jetpack#add('cocopon/iceberg.vim')
+call jetpack#add('rebelot/kanagawa.nvim')
+"?
+call jetpack#add('Vigemus/iron.nvim')
+call jetpack#add('lambdalisue/readablefold.vim')
+call jetpack#add('yutkat/history-ignore.vim')
+call jetpack#add('gorodinskiy/vim-coloresque')
+call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#add('nk0086/tosnippet.vim')
 call jetpack#add('mattn/vim-maketabel')
-call jetpack#add('fatih/vim-go')
-call jetpack#add('lukas-reineke/indent-blankline.nvim')
-call jetpack#add('mattn/emmet-vim')
-call jetpack#add('gorodinskiy/vim-coloresque')
 call jetpack#end()
 
-command! Config :e $MYVIMRC
-command! I3 :e $HOME/.config/i3/config
+command! Config :tabe $MYVIMRC
 command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/rust/%<.snip
-
-"competitive programming {
 command! Test :!cargo compete test %<
 command! Sub :!cargo compete submit %<
-"}
 
-"satysfi
+" the function of open terminal in right side
+function! OpenTerminal()
+	:vsplit
+	:wincmd l
+	:terminal
+endfunction
+command! Terminal :call OpenTerminal()
+
+
+"auto-command
 autocmd BufWritePost *.saty !satysfi % > /dev/null
 autocmd BufWritePost *.rs silent !rustfmt %
+"julia
+function! JuliaREPL()
+    :vsplit
+    :terminal julia --project
+    :wincmd l
+endfunction
+
+nnoremap <C-j> :call JuliaREPL()<CR>
+
 
 inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap <C-y> "+y
@@ -86,6 +103,10 @@ set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:.
 syntax enable
 filetype plugin indent on
 colorscheme kanagawa
+
+"fern.vim
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+let g:fern#renderer = 'nerdfont'
 
 "fzf
 let $FZF_DEFAULT_OPTS="--layout=reverse"
@@ -150,6 +171,7 @@ let g:copilot_node_command = "/usr/bin/node"
 let g:copilot_filetypes = {
     \ 'satysfi': v:false,
     \ }
+
 "ToSnipet
 let g:tosnippet#save_directory = $HOME."/.config/nvim/neosnippet-snippet/"
 

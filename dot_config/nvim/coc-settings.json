@@ -30,18 +30,7 @@
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length=88"],
-    "coc.preferences.formatOnSaveFiletypes": ["python"],
     "python.pythonPath": "python3",
-    "pyright.organizeImports.provider": "isort",
-    "isort.lineLength": 88,
-    "isort.profile": "black",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications",
-    "[python]": {
-	"editor.codeActionsOnSave": {
-	    "source.organizeImports": true
-    },
-
     
     "suggest.completionItemKindLabels": {
 	"function": "\uf794",
