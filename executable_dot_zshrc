@@ -39,9 +39,9 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/bin:$PATH"
 export BROWSER=google-chrome-stable
 export PATH=$HOME/.cargo/bin:$PATH
-export ~/.openai_key
 #alias anaconda="export PATH=/opt/anaconda/bin:$PATH" 
 
+source ~/.openai_key
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 alias toresearch="cd $HOME/Research/Project"
