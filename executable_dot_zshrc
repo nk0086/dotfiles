@@ -28,6 +28,7 @@ alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
 alias wallpaper="sh $HOME/.config/i3/wallpaper.sh"
 alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png")"
 alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
+alias julia="julia --project"
 
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
@@ -38,13 +39,13 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/bin:$PATH"
 export BROWSER=google-chrome-stable
 export PATH=$HOME/.cargo/bin:$PATH
-alias anaconda="export PATH=/opt/anaconda/bin:$PATH" 
+#alias anaconda="export PATH=/opt/anaconda/bin:$PATH" 
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-alias toresearch="cd $HOME/Project/research"
-alias atcoder="cd Project/atcoder"
-alias naist_vpn="sudo openvpn --config client.ovpn"
+alias toresearch="cd $HOME/Research/Project"
+alias toatcoder="cd $HOME/Project/competitive"
+alias naist_vpn="cd ~/Desktop/naist_vpn && sudo openvpn --config client.ovpn"
 
 # opam configuration
 #[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
