@@ -9,10 +9,14 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
 
-PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+# oh-my-zsh config {{{
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+# }}}
 
 bindkey -v
-alias matlab='$HOME/MATLAB/bin/matlab'
 alias ls='ls --color=auto'
 alias vi='nvim'
 alias vim='nvim'
@@ -35,14 +39,16 @@ export EDITOR=nvim
 export PATH=$HOME/.nimble/bin:$PATH
 export PATH=$HOME/Desktop/script:$PATH
 export GOPATH=$HOME/go
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/bin:$PATH"
 export BROWSER=google-chrome-stable
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$PATH:/usr/lib/w3m
+source $HOME/.rye/env
 #alias anaconda="export PATH=/opt/anaconda/bin:$PATH" 
 
-source ~/.openai_key
+# source ~/.openai_key
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 alias toresearch="cd $HOME/Research/Project"
