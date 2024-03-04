@@ -1,0 +1,53 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+bindkey -v
+alias ls='ls --color=auto'
+alias vi='nvim'
+alias vim='nvim'
+alias bim='nvim'
+alias cim='nvim'
+alias pypy='pypy3'
+alias tonvim='cd $HOME/.config/nvim/lua/user'
+alias open='xdg-open'
+alias lsl='ls -l'
+alias saty='satysfi'
+alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
+alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
+# alias wallpaper="sh $HOME/.config/i3/wallpaper.sh"
+alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png")"
+alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
+alias julia="julia --project"
+
+export SYSTEMD_EDITOR=nvim
+export EDITOR=nvim
+#export PATH=$HOME/.nimble/bin:$PATH
+#export PATH=$HOME/Desktop/script:$PATH
+#export GOPATH=$HOME/go
+#export PATH=$HOME/.local/bin:$PATH
+#export PATH=$PATH:$GOPATH/bin
+#export PATH="$HOME/bin:$PATH"
+#export BROWSER=google-chrome-stable
+#export PATH=$HOME/.cargo/bin:$PATH
+#export PATH=$PATH:/usr/lib/w3m
+#source $HOME/.rye/env
+#alias anaconda="export
+#PATH=/opt/anaconda/bin:$PATH"
+# source ~/.openai_key 
+#source /usr/share/fzf/key-bindings.zsh 
+#source /usr/share/fzf/completion.zsh
+#alias toresearch="cd $HOME/Research/Project"
+#alias toatcoder="cd $HOME/Project/competitive"
