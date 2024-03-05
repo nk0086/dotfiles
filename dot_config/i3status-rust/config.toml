@@ -31,6 +31,11 @@ warning_mem = 70
 critical_mem = 90
 
 [[block]]
+block = "disk_space"
+info_type = "used"
+format = "$icon $percentage (in $total)"
+
+[[block]]
 block = "cpu"
 interval = 1
 format = " $icon CPU $barchart $utilization "
@@ -48,13 +53,11 @@ interval = 60
 full = " $icon $timestamp.datetime(f:'%Y-%m-%d %R (%a)', l:fr_BE) "
 short = " $icon $timestamp.datetime(f:%R) "
 
-
-[[block]]
-block = "backlight"
-
-[[block]]
-block = "battery"
-format = " $percentage {$time |}"
-device = "DisplayDevice"
-driver = "upower"
-
+#[[block]]
+#block = "backlight"
+#
+#[[block]]
+#block = "battery"
+#format = " $percentage {$time |}"
+#device = "DisplayDevice"
+#driver = "upower"

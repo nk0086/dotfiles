@@ -26,10 +26,11 @@ gaps outer $default_outer_gaps
 
 # application etc..
 exec --no-startup-id "sh $HOME/.screenlayout/default.sh"
-exec --no-startup-id "feh --bg-scale $HOME/Pictures/wallpaper/00.jpg"
+exec --no-startup-id "sh $HOME/.config/i3/wallpaper.sh"
 exec --no-startup-id fcitx -d
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
-bindsym $mod+Return exec wezterm
+bindsym $mod+Shift+w exec "sh $HOME/.config/i3/wallpaper.sh"
+bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -modi combi -show combi
 bindsym $mod+p exec gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
 bindsym $mod+Shift+t exec "sh $HOME/deepl-clip/deepl-clip.sh"
