@@ -32,6 +32,7 @@ alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png"
 alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
 alias julia="julia --project"
 alias r="ranger"
+alias dot="chezmoi"
 
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
