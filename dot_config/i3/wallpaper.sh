@@ -1,5 +1,6 @@
 #! /bin/zsh
 
-dir="$HOME/Pictures/wallpaper"
+target=$1
+dir="$HOME/Pictures/wallpaper/"$target
 file=$(ls $dir | shuf -n1)
 feh --bg-max "$dir/$file"

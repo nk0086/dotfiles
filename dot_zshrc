@@ -23,7 +23,7 @@ alias cim='nvim'
 alias pypy='pypy3'
 alias tonvim='cd $HOME/.config/nvim/lua/user'
 alias open='xdg-open'
-alias lsl='ls -l'
+alias lsl='ls -la'
 alias saty='satysfi'
 alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
 alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
@@ -31,6 +31,7 @@ alias register="/usr/lib/mozc/mozc_tool --mode=word_register_dialog"
 alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png")"
 alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
 alias julia="julia --project"
+alias r="ranger"
 
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
