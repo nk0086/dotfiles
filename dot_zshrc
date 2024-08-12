@@ -53,3 +53,4 @@ export EDITOR=nvim
 #source /usr/share/fzf/completion.zsh
 #alias toresearch="cd $HOME/Research/Project"
 #alias toatcoder="cd $HOME/Project/competitive"
+source ~/zeno.zsh
