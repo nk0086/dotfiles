@@ -1,0 +1,6 @@
+manjaro-gdm-branding
+paru
+rename
+slack-desktop
+spectre-meltdown-checker
+spotify
