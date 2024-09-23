@@ -41,7 +41,7 @@ mode "Select [b: blue] [s: syny] [f: fav] [w: wallpaper]"  {
 }
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -modi combi -show combi
-bindsym $mod+p exec gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
+bindsym $mod+p exec /usr/bin/gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
 bindsym $mod+Shift+t exec "sh $HOME/deepl-clip/deepl-clip.sh"
 
 # window setting {
