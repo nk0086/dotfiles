@@ -39,13 +39,15 @@ alias julia="julia --project"
 alias r="ranger ~/Project"
 alias dot="chezmoi"
 
+export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
+export OPENAI_API_KEY=$(cat ~/.openapi_key)
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
 #export PATH=$HOME/.nimble/bin:$PATH
-#export PATH=$HOME/Desktop/script:$PATH
-#export GOPATH=$HOME/go
+export PATH=$HOME/script:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 #export PATH=$HOME/.local/bin:$PATH
-#export PATH=$PATH:$GOPATH/bin
 #export PATH="$HOME/bin:$PATH"
 #export BROWSER=google-chrome-stable
 #export PATH=$HOME/.cargo/bin:$PATH
@@ -53,7 +55,8 @@ export EDITOR=nvim
 #source $HOME/.rye/env
 #alias anaconda="export
 #PATH=/opt/anaconda/bin:$PATH"
-source ~/.openapi_key 
+# source ~/.openapi_key 
+# source ~/.anthropic_api_key
 # export PATH="/usr/bin/gm:$PATH"
 #source /usr/share/fzf/key-bindings.zsh 
 #source /usr/share/fzf/completion.zsh
