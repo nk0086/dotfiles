@@ -38,6 +38,7 @@ alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
 alias julia="julia --project"
 alias r="ranger ~/Project"
 alias dot="chezmoi"
+alias fh="history | fzf"
 
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 export OPENAI_API_KEY=$(cat ~/.openapi_key)
