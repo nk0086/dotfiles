@@ -41,8 +41,10 @@ mode "Select [b: blue] [s: syny] [f: fav] [w: wallpaper]"  {
 }
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -modi combi -show combi
+bindsym $mod+Shift+m exec rofi -show -run obsidian-memo.sh
 bindsym $mod+p exec /usr/bin/gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
 bindsym $mod+Shift+t exec "sh $HOME/deepl-clip/deepl-clip.sh"
+bindsym $mod+s exec "sh $HOME/script/run-script.sh"
 
 # window setting {
 # focus
@@ -101,7 +103,7 @@ mode "layout [h: split] [v: split] [t: tabbed] [s: stacking] [f: float]" {
     bindsym f floating toggle; mode "default"
 }
 
-bindsym $mod+s mode "split [h: horizontal] [v: vertical]"
+bindsym $mod+t mode "split [h: horizontal] [v: vertical]"
 mode "split [h: horizontal] [v: vertical]" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
