@@ -39,6 +39,7 @@ alias julia="julia --project"
 alias r="ranger ~/Project"
 alias dot="chezmoi"
 alias fh="history | fzf"
+alias code="cursor ."
 alias gs="git branch | fzf | xargs git switch"
 alias gi="sh $HOME/script/create-issue-and-branch.sh"
 
