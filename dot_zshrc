@@ -39,6 +39,8 @@ alias julia="julia --project"
 alias r="ranger ~/Project"
 alias dot="chezmoi"
 alias fh="history | fzf"
+alias gs="git branch | fzf | xargs git switch"
+alias gi="sh $HOME/script/create-issue-and-branch.sh"
 
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 export OPENAI_API_KEY=$(cat ~/.openapi_key)
