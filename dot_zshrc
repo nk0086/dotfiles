@@ -42,6 +42,7 @@ alias fh="history | fzf"
 alias code="cursor ."
 alias gs="git branch | fzf | xargs git switch"
 alias gi="sh $HOME/script/create-issue-and-branch.sh"
+alias dh="sh $HOME/script/dh.sh"
 
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 export OPENAI_API_KEY=$(cat ~/.openapi_key)
