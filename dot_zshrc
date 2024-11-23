@@ -57,7 +57,7 @@ export PATH=$PATH:$GOPATH/bin
 #export BROWSER=google-chrome-stable
 #export PATH=$HOME/.cargo/bin:$PATH
 #export PATH=$PATH:/usr/lib/w3m
-#source $HOME/.rye/env
+source $HOME/.rye/env
 #alias anaconda="export
 #PATH=/opt/anaconda/bin:$PATH"
 # source ~/.openapi_key 
