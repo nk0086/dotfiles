@@ -1,5 +1,7 @@
-manjaro-gdm-branding
+cursor-bin
+ffcast
 paru
+python-commitizen
 rename
 slack-desktop
 spectre-meltdown-checker

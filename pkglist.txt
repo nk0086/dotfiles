@@ -13,6 +13,7 @@ btrfs-progs
 btrfsmaintenance
 bzip2
 chezmoi
+code
 collision
 coreutils
 cpupower
@@ -27,6 +28,8 @@ diffutils
 dmidecode
 dmraid
 dnsmasq
+docker
+docker-compose
 dosfstools
 e2fsprogs
 ecryptfs-utils
@@ -50,6 +53,7 @@ fzf
 gdm
 gedit
 git-delta
+github-cli
 glibc-locales
 gnome-backgrounds
 gnome-bluetooth
@@ -94,6 +98,7 @@ gnome-user-docs
 gnome-user-share
 gnome-weather
 gnuchess
+graphicsmagick
 grilo-plugins
 grub
 grub-btrfs
@@ -108,6 +113,7 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+helvum
 htop
 i3-wm
 i3blocks
@@ -188,6 +194,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+npm
 nss-mdns
 ntfs-3g
 nvidia-settings
@@ -206,6 +213,7 @@ plymouth-theme-manjaro
 power-profiles-daemon
 python-pip
 python-pipx
+qpwgraph
 qt5ct
 qt6ct
 quadrapassel
@@ -215,10 +223,12 @@ ripgrep
 rofi
 rsync
 rustup
+rye
 rygel
 s-nail
 seahorse
 simple-scan
+slop
 snapshot
 sof-firmware
 squashfs-tools
@@ -242,11 +252,13 @@ unarchiver
 unrar
 update-grub
 usbutils
+ventoy
 vi
 vivaldi
 vulkan-intel
 vulkan-radeon
 webapp-manager
+wezterm
 wget
 which
 wireless-regdb
