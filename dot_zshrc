@@ -18,7 +18,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
-alias ls='ls --color=auto'
+alias diff='delta'
+alias cat='gat'
+alias ls='eza --color=auto'
 alias vi='nvim'
 alias vim='nvim'
 alias bim='nvim'
@@ -43,8 +45,9 @@ alias code="cursor ."
 alias gs="git branch | fzf | xargs git switch"
 alias gi="sh $HOME/script/create-issue-and-branch.sh"
 alias dh="sh $HOME/script/dh.sh"
+alias aicommits="aicommits --type conventional"
 
-export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
+#export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 export OPENAI_API_KEY=$(cat ~/.openapi_key)
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
@@ -57,7 +60,7 @@ export PATH=$PATH:$GOPATH/bin
 #export BROWSER=google-chrome-stable
 #export PATH=$HOME/.cargo/bin:$PATH
 #export PATH=$PATH:/usr/lib/w3m
-source $HOME/.rye/env
+#source $HOME/.rye/env
 #alias anaconda="export
 #PATH=/opt/anaconda/bin:$PATH"
 # source ~/.openapi_key 
