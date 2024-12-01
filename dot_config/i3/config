@@ -24,6 +24,10 @@ gaps inner $default_inner_gaps
 gaps outer $default_outer_gaps
 # }
 
+# rofi 
+exec --no-startup-id greenclip daemon>/dev/null
+bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard
+
 # application etc..
 exec --no-startup-id "sh $HOME/.screenlayout/default.sh"
 exec --no-startup-id "sh $HOME/.config/i3/wallpaper.sh"
@@ -42,7 +46,8 @@ mode "Select [b: blue] [s: syny] [f: fav] [w: wallpaper]"  {
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -modi combi -show combi
 bindsym $mod+Shift+m exec rofi -show -run obsidian-memo.sh
-bindsym $mod+p exec /usr/bin/gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
+# bindsym $mod+p exec /usr/bin/gm import -trim $(date "+Pictures/screenshot/%Y%m%d-%H%M%S.png")
+bindsym $mod+p exec rofi-screenshot
 bindsym $mod+Shift+t exec "sh $HOME/deepl-clip/deepl-clip.sh"
 bindsym $mod+s exec "sh $HOME/script/run-script.sh"
 
