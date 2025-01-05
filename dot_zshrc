@@ -26,7 +26,7 @@ alias vim='nvim'
 alias bim='nvim'
 alias cim='nvim'
 alias pypy='pypy3'
-alias tonvim='cd $HOME/.config/nvim/lua/user'
+alias tonvim='cd $HOME/.config/nvim/'
 alias open='xdg-open'
 alias lsl='ls -la'
 alias saty='satysfi'
@@ -58,7 +58,7 @@ export PATH=$PATH:$GOPATH/bin
 #export PATH=$HOME/.local/bin:$PATH
 #export PATH="$HOME/bin:$PATH"
 #export BROWSER=google-chrome-stable
-#export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 #export PATH=$PATH:/usr/lib/w3m
 #source $HOME/.rye/env
 #alias anaconda="export
