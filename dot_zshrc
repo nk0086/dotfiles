@@ -57,16 +57,11 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 #export PATH=$HOME/.local/bin:$PATH
 #export PATH="$HOME/bin:$PATH"
-#export BROWSER=google-chrome-stable
 export PATH=$HOME/.cargo/bin:$PATH
-#export PATH=$PATH:/usr/lib/w3m
-#source $HOME/.rye/env
-#alias anaconda="export
-#PATH=/opt/anaconda/bin:$PATH"
-# source ~/.openapi_key 
-# source ~/.anthropic_api_key
+source ~/.openapi_key 
+source ~/.anthropic_api_key
+source ~/.gemini_api
 # export PATH="/usr/bin/gm:$PATH"
-#source /usr/share/fzf/key-bindings.zsh 
-#source /usr/share/fzf/completion.zsh
-#alias toresearch="cd $HOME/Research/Project"
+source /usr/share/fzf/key-bindings.zsh 
+source /usr/share/fzf/completion.zsh
 #alias toatcoder="cd $HOME/Project/competitive"
