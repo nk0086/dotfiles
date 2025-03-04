@@ -48,7 +48,11 @@ alias dh="sh $HOME/script/dh.sh"
 alias aicommits="aicommits --type conventional"
 
 #export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
+# Road API KEY
 export OPENAI_API_KEY=$(cat ~/.openapi_key)
+export GEMINI_API_KEY=$(cat ~/.gemini_api)
+export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_personal_access_token)
+
 export SYSTEMD_EDITOR=nvim
 export EDITOR=nvim
 #export PATH=$HOME/.nimble/bin:$PATH
@@ -58,9 +62,6 @@ export PATH=$PATH:$GOPATH/bin
 #export PATH=$HOME/.local/bin:$PATH
 #export PATH="$HOME/bin:$PATH"
 export PATH=$HOME/.cargo/bin:$PATH
-source ~/.openapi_key 
-source ~/.anthropic_api_key
-source ~/.gemini_api
 # export PATH="/usr/bin/gm:$PATH"
 source /usr/share/fzf/key-bindings.zsh 
 source /usr/share/fzf/completion.zsh
