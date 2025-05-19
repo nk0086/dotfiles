@@ -53,4 +53,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 source /usr/share/fzf/key-bindings.zsh 
 source /usr/share/fzf/completion.zsh
 #alias toatcoder="cd $HOME/Project/competitive"
+export ZSH=/home/matsu/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh
+eval "$(sheldon source)"
 eval "$(starship init zsh)"
