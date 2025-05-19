@@ -36,7 +36,7 @@ alias aicommits="aicommits --type conventional"
 
 #export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 # Road API KEY
-export OPENAI_API_KEY=$(cat ~/.openapi_key)
+export OPENAI_API_KEY=$(cat ~/.openai_api_key)
 export GEMINI_API_KEY=$(cat ~/.gemini_api)
 export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_personal_access_token)
 
@@ -54,5 +54,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 #alias toatcoder="cd $HOME/Project/competitive"
 export ZSH=/home/matsu/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh
+
 eval "$(sheldon source)"
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
