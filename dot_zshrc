@@ -13,7 +13,6 @@ alias vim='nvim'
 alias bim='nvim'
 alias cim='nvim'
 alias pypy='pypy3'
-alias tonvim='cd $HOME/.config/nvim/'
 alias open='xdg-open'
 alias lsl='ls -la'
 alias saty='satysfi'
@@ -25,14 +24,14 @@ alias gm="/usr/bin/gm"
 alias trim="gm import root $(date +"$HOME/Pictures/screenshot/%Y%m%d-%H%M%S.png")"
 alias capture="gm import root $(date +"$HOME/Pictures/screenshot/$1.png")"
 alias julia="julia --project"
-alias r="ranger ~/Project"
+alias r="ranger ~/Desktop"
 alias dot="chezmoi"
 alias fh="history | fzf"
-alias code="cursor ."
 alias gs="git branch | fzf | xargs git switch"
 alias gi="sh $HOME/script/create-issue-and-branch.sh"
 alias dh="sh $HOME/script/dh.sh"
 alias aicommits="aicommits --type conventional"
+alias cc="clear"
 
 #export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 # Road API KEY
