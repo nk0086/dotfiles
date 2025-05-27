@@ -37,6 +37,7 @@ alias cc="clear"
 alias tonvim='cd $HOME/.config/nvim && nvim $HOME/.config/nvim/'
 alias tosh='nvim $HOME/.zshrc'
 alias Source='source $HOME/.zshrc'
+
 #export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 # Road API KEY
 export OPENAI_API_KEY=$(cat ~/.openai_api_key)
@@ -61,3 +62,6 @@ export ZSH=/home/matsu/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh
 eval "$(sheldon source)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+# build options
+export CARGO_BUILD_JOBS=20
