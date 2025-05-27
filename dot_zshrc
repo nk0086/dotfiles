@@ -33,6 +33,10 @@ alias dh="sh $HOME/script/dh.sh"
 alias aicommits="aicommits --type conventional"
 alias cc="clear"
 
+# frequently visited directories
+alias tonvim='cd $HOME/.config/nvim && nvim $HOME/.config/nvim/'
+alias tosh='nvim $HOME/.zshrc'
+alias Source='source $HOME/.zshrc'
 #export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
 # Road API KEY
 export OPENAI_API_KEY=$(cat ~/.openai_api_key)
