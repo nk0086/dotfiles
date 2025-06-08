@@ -34,14 +34,21 @@ in {
     packages = with pkgs; [
       # base packages
       git
+      git-extras
+      git-interactive-rebase-tool
+      git-quick-stats
+      git-recent
+      git-trim
+      git-workspace
       curl
       fzf
       neovim
       ranger
       starship
       gh
-
-      # formatting tools
+      nix-output-monitor
+      nix-search-cli
+      nix-zsh-completions
       alejandra # nix
 
       # extensions
@@ -49,6 +56,23 @@ in {
       eza
       ripgrep
       zoxide
+
+      # programming languages
+      deno
+      nodejs_22
+      yarn
+      vtsls
+      lua-language-server # Lua
+      stylua
+      go
+      zig
+      rustup
+      nim
+      erlang_27 # Erlang
+      gleam
+      rebar3
+      ltex-ls # 文法・スペルチェック用Language Server
+      typos-lsp # タイポ検出用Language Server
     ];
   };
 
