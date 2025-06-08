@@ -24,11 +24,23 @@ in {
     stateVersion = "24.05";
 
     packages = with pkgs; [
+      # base packages
       git
       curl
-      alejandra
-      eza
+      fzf
       neovim
+      ranger
+      starship
+      gh
+
+      # formatting tools
+      alejandra # nix
+
+      # extensions
+      bat
+      eza
+      ripgrep
+      zoxide
     ];
   };
 
