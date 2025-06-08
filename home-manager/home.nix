@@ -52,4 +52,5 @@ in {
   };
 
   programs.home-manager.enable = true;
+  programs.starship.enable = true;
 }
