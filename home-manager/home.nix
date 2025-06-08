@@ -17,6 +17,7 @@ in {
   };
 
   imports = [
+    ./programs/direnv.nix
     ./programs/zsh.nix
     ./programs/bat.nix
     ./programs/eza.nix
