@@ -16,6 +16,13 @@ in {
     ];
   };
 
+  imports = [
+    ./programs/zsh.nix
+    ./programs/bat.nix
+    ./programs/eza.nix
+    ./programs/gh.nix
+  ];
+
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
