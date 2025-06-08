@@ -14,7 +14,8 @@
     self,
     nixpkgs,
     neovim-nightly-overlay,
-  }: let
+    home-manager,
+  } @ inputs: let
     system = "aarch64-darwin";
     pkgs = nixpkgs.legacyPackages.${system}.extend (
       neovim-nightly-overlay.overlays.default
@@ -41,6 +42,20 @@
         nix profile upgrade my-packages
         echo "Update complete!"
       '');
+    };
+
+    homeConfigurations = {
+      myHomeConfig = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = system;
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./home-manager/home.nix
+        ];
+      };
     };
   };
 }
