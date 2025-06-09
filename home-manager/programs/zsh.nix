@@ -32,9 +32,10 @@
     };
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
-    initExtra = ''
+    initContent = ''
       eval "$(zoxide init zsh)"
       export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_token)
+      export OPENAI_API_KEY=$(cat ~/.openai_api_key)
       export PATH="$HOME/.npm-global/bin:$PATH"
     '';
   };
