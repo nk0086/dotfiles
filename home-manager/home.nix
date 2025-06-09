@@ -50,6 +50,7 @@ in {
       nix-search-cli
       nix-zsh-completions
       alejandra # nix
+      docker
 
       # extensions
       bat
@@ -57,10 +58,12 @@ in {
       ripgrep
       zoxide
 
-      # programming languages
+      # development tools 
+      proto
+      rye
+      uv
       deno
       nodejs_22
-      yarn
       vtsls
       lua-language-server # Lua
       stylua
