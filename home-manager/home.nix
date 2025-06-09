@@ -51,6 +51,7 @@ in {
       nix-zsh-completions
       alejandra # nix
       docker
+      ollama
 
       # extensions
       bat
@@ -58,7 +59,7 @@ in {
       ripgrep
       zoxide
 
-      # development tools 
+      # development tools
       proto
       rye
       uv
