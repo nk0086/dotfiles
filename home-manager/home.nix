@@ -52,6 +52,7 @@ in {
       alejandra # nix
       docker
       ollama
+      claude-code
 
       # extensions
       bat
