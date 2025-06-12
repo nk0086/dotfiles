@@ -54,6 +54,7 @@ in {
       ollama
       claude-code
       awscli2
+      wezterm
 
       # extensions
       bat
