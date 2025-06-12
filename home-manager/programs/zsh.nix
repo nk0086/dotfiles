@@ -29,6 +29,9 @@
       tree = "eza --icons always --classify always --tree";
       r = "ranger";
       cc = "clear";
+      vim = "nvim";
+      evim = "nvim ~/.config/dotfiles/nvim/init.lua";
+      edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
     };
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
