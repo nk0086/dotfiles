@@ -31,6 +31,10 @@ in {
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
 
+    file = {
+      ".config/nvim/init.lua".source = ../nvim/init.lua;
+    };
+
     packages = with pkgs; [
       # base packages
       git
