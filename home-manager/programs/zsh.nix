@@ -32,6 +32,7 @@
       vim = "nvim";
       evim = "nvim ~/.config/dotfiles/nvim/init.lua";
       edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
+      reload = "exec zsh";
     };
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
