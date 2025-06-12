@@ -53,6 +53,7 @@ in {
       docker
       ollama
       claude-code
+      awscli2
 
       # extensions
       bat
