@@ -35,6 +35,10 @@ in {
       ".config/nvim/init.lua".source = ../nvim/init.lua;
       # lua
       ".config/nvim/init.lua".source = ../config/nvim/init.lua;
+
+      # wezterm
+      ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua; 
+      ".config/wezterm/keybinds.lua".source = ../config/wezterm/keybinds.lua; 
     };
 
     packages = with pkgs; [
