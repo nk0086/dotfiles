@@ -16,7 +16,7 @@ vim.keymap.set("n", "<leader>d", "<Cmd>bd<CR>")
 vim.keymap.set("n", "H", "<Cmd>bp<CR>")
 vim.keymap.set("n", "L", "<Cmd>bn<CR>")
 
-# telescope
+-- telescope
 vim.keymap.set("n", "<leader>o", function() require("telescope.builtin").find_files { hidden = true } end)
 vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files() end, { noremap = true })
 vim.keymap.set("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, { noremap = true })
