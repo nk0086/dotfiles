@@ -33,6 +33,8 @@ in {
 
     file = {
       ".config/nvim/init.lua".source = ../nvim/init.lua;
+      # lua
+      ".config/nvim/init.lua".source = ../config/nvim/init.lua;
     };
 
     packages = with pkgs; [
