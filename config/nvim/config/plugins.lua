@@ -23,6 +23,10 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+},
     { "machakann/vim-sandwich" },
     { "rhysd/clever-f.vim" },
     { "iberianpig/tig-explorer.vim" },
