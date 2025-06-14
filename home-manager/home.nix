@@ -32,7 +32,6 @@ in {
     stateVersion = "24.05";
 
     file = {
-      ".config/nvim/init.lua".source = ../nvim/init.lua;
       # lua
       ".config/nvim/init.lua".source = ../config/nvim/init.lua;
 
@@ -65,6 +64,8 @@ in {
       claude-code
       awscli2
       wezterm
+      tig
+      cmake
 
       # extensions
       bat
@@ -76,6 +77,7 @@ in {
       proto
       rye
       uv
+      python314
       deno
       nodejs_22
       vtsls
