@@ -33,6 +33,7 @@
       evim = "nvim ~/.config/dotfiles/nvim/init.lua";
       edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
       reload = "exec zsh";
+      eclaude = "nvim ~/.claude/settings.json";
     };
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
@@ -41,6 +42,7 @@
       export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_token)
       export OPENAI_API_KEY=$(cat ~/.openai_api_key)
       export PATH="$HOME/.npm-global/bin:$PATH"
+      export EDITOR="nvim"
     '';
   };
 }
