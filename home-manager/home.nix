@@ -41,6 +41,7 @@ in {
       ".config/nvim/config/options.lua".source = ../config/nvim/config/options.lua;
       ".config/nvim/config/plugins.lua".source = ../config/nvim/config/plugins.lua;
       ".config/nvim/config/terminal.lua".source = ../config/nvim/config/terminal.lua;
+      ".config/nvim/config/formatters.lua".source = ../config/nvim/config/formatters.lua;
 
       # wezterm
       ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua; 

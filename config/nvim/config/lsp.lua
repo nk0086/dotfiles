@@ -16,6 +16,29 @@ vim.api.nvim_create_autocmd("VimEnter", {
         require("lspconfig").lua_ls.setup { on_attach = on_attach }
         require("lspconfig").ts_ls.setup { on_attach = on_attach }
         require("lspconfig").pyright.setup { on_attach = on_attach }
-        require("lspconfig").gopls.setup { on_attach = on_attach }
+        require("lspconfig").gopls.setup { 
+            on_attach = on_attach,
+            settings = {
+                gopls = {
+                    gofumpt = true,
+                },
+            },
+        }
+        require("lspconfig").rust_analyzer.setup { 
+            on_attach = on_attach,
+            settings = {
+                ["rust-analyzer"] = {
+                    cargo = {
+                        allFeatures = true,
+                    },
+                    procMacro = {
+                        enable = true,
+                    },
+                },
+            },
+        }
+        require("lspconfig").nil_ls.setup { on_attach = on_attach }
+        require("lspconfig").nim_langserver.setup { on_attach = on_attach }
+        require("lspconfig").gleam.setup { on_attach = on_attach }
     end,
 })

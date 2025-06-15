@@ -33,4 +33,26 @@ require("lazy").setup({
     { "cocopon/iceberg.vim" },
     { "tpope/vim-commentary" },
     { "neovim/nvim-lspconfig" },
+    {
+        "stevearc/conform.nvim",
+        opts = {},
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {
+                    "rust", "go", "python", "nim", "nix", "lua", "typescript", "javascript", "gleam"
+                },
+                auto_install = true,
+                highlight = {
+                    enable = true,
+                },
+                indent = {
+                    enable = true,
+                },
+            })
+        end,
+    },
 })
