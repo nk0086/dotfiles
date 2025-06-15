@@ -20,29 +20,29 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     apps.${system} = {
-    # nix run .#update
-    update = {
-      type = "app";
-      program = toString (pkgs.writeShellScript "update-script" ''
-        set -e
-        echo "Updating flake ... "
-        nix flake update
-        echo "Updating home-manager ... "
-        nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
-        echo "Update complete!"
-      '');
-    };
+      # nix run .#update
+      update = {
+        type = "app";
+        program = toString (pkgs.writeShellScript "update-script" ''
+          set -e
+          echo "Updating flake ... "
+          nix flake update
+          echo "Updating home-manager ... "
+          nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
+          echo "Update complete!"
+        '');
+      };
 
-    # nix run .#sync
-    sync = {
-      type = "app";
-      program = toString (pkgs.writeShellScript "sync-script" ''
-        set -e
-        echo "Syncing home-manager configuration..."
-        nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
-        echo "Sync complete! Config changes applied."
-      '');
-    };
+      # nix run .#sync
+      sync = {
+        type = "app";
+        program = toString (pkgs.writeShellScript "sync-script" ''
+          set -e
+          echo "Syncing home-manager configuration..."
+          nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
+          echo "Sync complete! Config changes applied."
+        '');
+      };
     };
 
     homeConfigurations = {
