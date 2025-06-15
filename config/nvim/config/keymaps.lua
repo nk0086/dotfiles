@@ -6,7 +6,7 @@ vim.keymap.set({ "n", "v" }, "<leader>j", "10j", { noremap = true })
 vim.keymap.set({ "n", "v" }, "<leader>k", "10k", { noremap = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 
-vim.api.nvim_create_user_command('Source', 'source $MYVIMRC', {})
+vim.api.nvim_create_user_command("Source", "source $MYVIMRC", {})
 
 vim.keymap.set("n", "<leader>s", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
@@ -33,11 +33,27 @@ vim.keymap.set("n", "<leader>fr", function()
 	require("telescope.builtin").oldfiles()
 end, { noremap = true })
 
--- formatting
-vim.keymap.set({ "n", "v" }, "<leader>f", function()
-    require("conform").format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-    })
-end, { desc = "Format file or range (in visual mode)" })
+-- nvim-tree
+local function my_on_attach(bufnr)
+	local api = require("nvim-tree.api")
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+
+	-- default mappings
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- custom mappings
+	vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+	vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+end
+
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- pass to setup along with your other options
+require("nvim-tree").setup({
+	---
+	on_attach = my_on_attach,
+	---
+})

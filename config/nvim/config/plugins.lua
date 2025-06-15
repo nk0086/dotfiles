@@ -31,12 +31,15 @@ require("lazy").setup({
 	{ "rhysd/clever-f.vim" },
 	{ "iberianpig/tig-explorer.vim" },
 	{ "cocopon/iceberg.vim" },
+	{ "rebelot/kanagawa.nvim" },
 	{ "tpope/vim-commentary" },
 	{ "neovim/nvim-lspconfig" },
 	{
 		"stevearc/conform.nvim",
 		opts = {},
 	},
+    -- https://github.com/nvim-tree/nvim-tree.lua
+	{ "nvim-tree/nvim-tree.lua" },
 	-- {
 	--     "nvim-treesitter/nvim-treesitter",
 	--     build = ":TSUpdate",
