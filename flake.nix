@@ -45,17 +45,6 @@
       };
     };
 
-    # nix run .#sync
-    apps.${system}.sync = {
-      type = "app";
-      program = toString (pkgs.writeShellScript "sync-script" ''
-        set -e
-        echo "Syncing home-manager configuration..."
-        nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
-        echo "Sync complete! Config changes applied."
-      '');
-    };
-
     homeConfigurations = {
       myHomeConfig = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs;
