@@ -63,6 +63,7 @@ in {
       ranger
       starship
       gh
+      nil
       nix-output-monitor
       nix-search-cli
       nix-zsh-completions
