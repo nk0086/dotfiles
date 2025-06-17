@@ -28,7 +28,7 @@
       ll = "eza --icons always --long --all --git ";
       tree = "eza --icons always --classify always --tree";
       r = "ranger";
-      cc = "clear && ll";
+      cc = "clear && eza --icons always --long --all --git";
       vim = "nvim";
       evim = "nvim ~/.config/dotfiles/nvim/init.lua";
       edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
