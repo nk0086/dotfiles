@@ -1,0 +1,44 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  format:nix:
+    desc: "Format all Nix files with alejandra"
+    sources:
+      - "**/*.nix"
+    cmds:
+      - alejandra **/*.nix
+
+  format:lua:
+    desc: "Format all Lua files with stylua"
+    sources:
+      - "**/*.lua"
+    cmds:
+      - stylua **/*.lua
+
+  format:
+    desc: "Format all Nix and Lua files"
+    deps: [format:nix, format:lua]
+
+  check:nix:
+    desc: "Check Nix formatting (dry-run)"
+    cmds:
+      - alejandra --check **/*.nix
+
+  check:lua:
+    desc: "Check Lua formatting (dry-run)"
+    cmds:
+      - stylua --check **/*.lua
+
+  check:
+    desc: "Check formatting for all files"
+    deps: [check:nix, check:lua]
