@@ -20,11 +20,14 @@ vim.keymap.set("n", "L", "<Cmd>bn<CR>")
 vim.keymap.set("n", "<leader>o", function()
 	require("telescope.builtin").find_files({ hidden = true })
 end)
-vim.keymap.set("n", "<leader>ff", function()
+vim.keymap.set("n", "<leader>fs", function()
 	require("telescope.builtin").find_files()
 end, { noremap = true })
-vim.keymap.set("n", "<leader>fg", function()
+vim.keymap.set("n", "<leader>ff", function()
 	require("telescope.builtin").live_grep()
+end, { noremap = true })
+vim.keymap.set("n", "<leader>fg", function()
+	require("telescope.builtin").git_commits()
 end, { noremap = true })
 vim.keymap.set("n", "<leader>fb", function()
 	require("telescope.builtin").buffers()
@@ -55,5 +58,6 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 require("nvim-tree").setup({
 	---
 	on_attach = my_on_attach,
+	respect_buf_cwd = true,
 	---
 })
