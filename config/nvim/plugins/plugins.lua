@@ -60,6 +60,9 @@ require("lazy").setup({
 		end,
 	},
 	{ "github/copilot.vim" },
+	{
+		"numToStr/Comment.nvim",
+	},
 	-- {
 	--     "nvim-treesitter/nvim-treesitter",
 	--     build = ":TSUpdate",
