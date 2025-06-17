@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        vim.cmd("colorscheme iceberg")
+        vim.cmd("colorscheme kanagawa-dragon")
     end,
 })
 
