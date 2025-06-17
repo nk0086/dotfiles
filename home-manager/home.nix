@@ -76,6 +76,7 @@ in {
       tig
       cmake
       luajitPackages.luarocks_bootstrap
+      go-task
 
       # extensions
       bat
