@@ -38,8 +38,28 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-    -- https://github.com/nvim-tree/nvim-tree.lua
+	-- https://github.com/nvim-tree/nvim-tree.lua
 	{ "nvim-tree/nvim-tree.lua" },
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").configure({
+				providers = {
+					"lsp",
+					"treesitter",
+					"regex",
+				},
+				delay = 100,
+				filetype_overrides = {},
+				filetypes_denylist = {
+					"dirvish",
+					"fugitive",
+				},
+				under_cursor = true,
+			})
+		end,
+	},
+	{ "github/copilot.vim" },
 	-- {
 	--     "nvim-treesitter/nvim-treesitter",
 	--     build = ":TSUpdate",
