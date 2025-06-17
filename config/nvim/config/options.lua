@@ -10,6 +10,4 @@ vim.opt.list = true
 vim.opt.listchars = { tab = ">-", trail = "-" }
 vim.opt.cursorline = true
 vim.opt.completeopt = "menuone"
-vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-
