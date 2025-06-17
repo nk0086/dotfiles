@@ -75,6 +75,7 @@ in {
       wezterm
       tig
       cmake
+      luajitPackages.luarocks_bootstrap
 
       # extensions
       bat
