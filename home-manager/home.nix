@@ -4,9 +4,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   username = "nk";
-in {
+in
+{
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -80,7 +82,7 @@ in {
       cmake
       luajitPackages.luarocks_bootstrap
       go-task
-      redoc-cli
+      redocly
 
       # extensions
       bat
