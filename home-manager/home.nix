@@ -80,6 +80,7 @@ in {
       cmake
       luajitPackages.luarocks_bootstrap
       go-task
+      redoc-cli
 
       # extensions
       bat
