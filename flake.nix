@@ -82,6 +82,7 @@
     };
 
     homeConfigurations = {
+      home-manager.backupFileExtension = ".bak";
       myHomeConfig = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs;
         extraSpecialArgs = {

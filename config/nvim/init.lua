@@ -3,6 +3,7 @@ package.path = package.path .. ";" .. config_path .. "/?.lua;" .. config_path ..
 
 require("plugins.plugins")
 require("plugins.lualine")
+require("plugins.nvim-tree")
 require("config.options")
 require("config.keymaps")
 require("config.lsp")
