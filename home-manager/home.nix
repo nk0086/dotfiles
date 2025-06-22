@@ -86,6 +86,7 @@ in
       luajitPackages.luarocks_bootstrap
       go-task
       redocly
+      openssl
 
       # extensions
       bat
