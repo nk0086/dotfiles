@@ -51,6 +51,9 @@ in
       # wezterm
       ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua;
       ".config/wezterm/keybinds.lua".source = ../config/wezterm/keybinds.lua;
+
+      # tig
+      ".tigrc".source = ../config/.tigrc;
     };
 
     packages = with pkgs; [
