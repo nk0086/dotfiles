@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -43,6 +44,7 @@
       export OPENAI_API_KEY=$(cat ~/.openai_api_key)
       export PATH="$HOME/.npm-global/bin:$PATH"
       export EDITOR="nvim"
+      export CARGO_BUILD_JOBS=12;
     '';
   };
 }
