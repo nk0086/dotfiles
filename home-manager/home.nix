@@ -84,9 +84,12 @@ in
       tig
       cmake
       luajitPackages.luarocks_bootstrap
+      rust-analyzer
       go-task
       redocly
       openssl
+      pkgconf
+      rust-bin.stable.latest.default
 
       # extensions
       bat
@@ -106,7 +109,6 @@ in
       stylua
       go
       zig
-      rustup
       nim
       erlang_27 # Erlang
       gleam
