@@ -13,18 +13,18 @@ end
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        require("lspconfig").lua_ls.setup { on_attach = on_attach }
-        require("lspconfig").ts_ls.setup { on_attach = on_attach }
-        require("lspconfig").pyright.setup { on_attach = on_attach }
-        require("lspconfig").gopls.setup { 
+        require("lspconfig").lua_ls.setup({ on_attach = on_attach })
+        require("lspconfig").ts_ls.setup({ on_attach = on_attach })
+        require("lspconfig").pyright.setup({ on_attach = on_attach })
+        require("lspconfig").gopls.setup({
             on_attach = on_attach,
             settings = {
                 gopls = {
                     gofumpt = true,
                 },
             },
-        }
-        require("lspconfig").rust_analyzer.setup { 
+        })
+        require("lspconfig").rust_analyzer.setup({
             on_attach = on_attach,
             settings = {
                 ["rust-analyzer"] = {
@@ -36,9 +36,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
                     },
                 },
             },
-        }
-        require("lspconfig").nil_ls.setup { on_attach = on_attach }
-        require("lspconfig").nim_langserver.setup { on_attach = on_attach }
-        require("lspconfig").gleam.setup { on_attach = on_attach }
+        })
+        require("lspconfig").nil_ls.setup({ on_attach = on_attach })
+        require("lspconfig").nim_langserver.setup({ on_attach = on_attach })
+        require("lspconfig").gleam.setup({ on_attach = on_attach })
     end,
 })
