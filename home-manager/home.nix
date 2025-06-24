@@ -90,6 +90,7 @@ in
       openssl
       pkgconf
       rust-bin.stable.latest.default
+      online-judge-tools
 
       # extensions
       bat
