@@ -15,6 +15,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true })
 vim.keymap.set("n", "<leader>d", "<Cmd>bd<CR>")
 vim.keymap.set("n", "H", "<Cmd>bp<CR>")
 vim.keymap.set("n", "L", "<Cmd>bn<CR>")
+vim.keymap.set("n", "<leader>n", "<Cmd>enew<CR>", { noremap = true, silent = true })
 
 -- get_git_root function
 local function get_git_root()
