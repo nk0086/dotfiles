@@ -84,13 +84,12 @@ in
       tig
       cmake
       luajitPackages.luarocks_bootstrap
-      rust-analyzer
       go-task
       redocly
       openssl
       pkgconf
-      rust-bin.stable.latest.default
       online-judge-tools
+      mise
 
       # extensions
       bat

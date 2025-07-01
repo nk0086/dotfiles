@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -19,14 +15,12 @@
       self,
       nixpkgs,
       home-manager,
-      rust-overlay,
       ...
     }@inputs:
     let
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ rust-overlay.overlays.default ];
       };
       lib = nixpkgs.lib;
     in
