@@ -43,6 +43,7 @@
       export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_token)
       export OPENAI_API_KEY=$(cat ~/.openai_api_key)
       export PATH="$HOME/.npm-global/bin:$PATH"
+      export PATH=$HOME/.cargo/bin:$PATH
       export EDITOR="nvim"
       export CARGO_BUILD_JOBS=12;
     '';
