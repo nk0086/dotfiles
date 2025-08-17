@@ -90,6 +90,7 @@ in
       pkgconf
       online-judge-tools
       mise
+      openssl
 
       # extensions
       bat
