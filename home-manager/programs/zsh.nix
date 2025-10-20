@@ -34,6 +34,7 @@
       edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
       reload = "exec zsh";
       eclaude = "nvim ~/.claude/settings.json";
+      claude = "claude --mcp-config=$HOME/.claude/.mcp.json";
     };
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
