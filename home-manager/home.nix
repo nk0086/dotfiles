@@ -4,11 +4,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   username = "nk";
-in
-{
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -78,7 +76,7 @@ in
       alejandra # nix
       docker
       ollama
-      claude-code
+      # claude-code
       awscli2
       wezterm
       tig
