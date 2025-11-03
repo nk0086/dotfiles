@@ -95,6 +95,7 @@ in {
       eza
       ripgrep
       zoxide
+      delta
 
       # development tools
       proto
