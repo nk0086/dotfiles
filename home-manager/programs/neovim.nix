@@ -24,7 +24,5 @@
       nodePackages.typescript-language-server
       # ...
     ];
-
-    extraLuaConfig = builtins.readFile ../../nvim/init.lua;
   };
 }
