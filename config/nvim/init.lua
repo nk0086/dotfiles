@@ -10,6 +10,7 @@ vim.g.copilot_filetypes = {
 require("plugins.plugins")
 require("plugins.lualine")
 require("plugins.nvim-tree")
+require("plugins.which-key")
 require("config.options")
 require("config.keymaps")
 require("config.lsp")
