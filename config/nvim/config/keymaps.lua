@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.keymap.set({ "n", "v" }, "<leader>h", "^", { noremap = true, desc = "Go to line start" })
 vim.keymap.set({ "n", "v" }, "<leader>l", "$", { noremap = true, desc = "Go to line end" })
 vim.keymap.set({ "n", "v" }, "<leader>j", "10j", { noremap = true, desc = "Move 10 lines down" })
