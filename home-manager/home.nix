@@ -45,6 +45,7 @@ in {
       ".config/nvim/plugins/plugins.lua".source = ../config/nvim/plugins/plugins.lua;
       ".config/nvim/plugins/lualine.lua".source = ../config/nvim/plugins/lualine.lua;
       ".config/nvim/plugins/nvim-tree.lua".source = ../config/nvim/plugins/nvim-tree.lua;
+      ".config/nvim/plugins/which-key.lua".source = ../config/nvim/plugins/which-key.lua;
 
       # wezterm
       ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua;
