@@ -97,6 +97,7 @@ in {
       ripgrep
       zoxide
       delta
+      httpie
 
       # development tools
       proto
