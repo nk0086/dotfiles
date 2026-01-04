@@ -22,12 +22,13 @@
 
     shellAliases = {
       cat = "bat";
-      ls = "eza --icons always --classify always";
-      la = "eza --icons always --classify always --all ";
-      ll = "eza --icons always --long --all --git ";
-      tree = "eza --icons always --classify always --tree";
+      copy = "pbcopy";
+      ls = "eza --icons always --classify always --ignore-glob='.DS_Store'";
+      la = "eza --icons always --classify always --all --ignore-glob='.DS_Store'";
+      ll = "eza --icons always --long --all --git --ignore-glob='.DS_Store'";
+      tree = "eza --icons always --classify always --tree --ignore-glob='.DS_Store'";
       r = "ranger";
-      cc = "clear && eza --icons always --long --all --git";
+      cc = "clear && eza --icons always --long --all --git --ignore-glob='.DS_Store'";
       vim = "nvim";
       evim = "nvim ~/.config/dotfiles/nvim/init.lua";
       edot = "nvim ~/.config/dotfiles/home-manager/home.nix";
