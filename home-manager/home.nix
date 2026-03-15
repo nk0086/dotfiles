@@ -4,9 +4,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   username = "nk";
-in {
+in
+{
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -103,6 +105,7 @@ in {
       proto
       rye
       uv
+      pnpm
       python314
       deno
       nodejs_22
