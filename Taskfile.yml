@@ -42,3 +42,14 @@ tasks:
   check:
     desc: "Check formatting for all files"
     deps: [check:nix, check:lua]
+
+  sync:
+    desc: "Apply home-manager configuration"
+    cmds:
+      - home-manager switch --flake .#myHomeConfig
+
+  update:
+    desc: "Update flake and apply home-manager configuration"
+    cmds:
+      - nix flake update
+      - home-manager switch --flake .#myHomeConfig
