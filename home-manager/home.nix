@@ -33,23 +33,14 @@ in {
     stateVersion = "24.05";
 
     file = {
-      # lua
-      ".config/nvim/init.lua".source = ../config/nvim/init.lua;
-      ".config/nvim/config/autocmds.lua".source = ../config/nvim/config/autocmds.lua;
-      ".config/nvim/config/keymaps.lua".source = ../config/nvim/config/keymaps.lua;
-      ".config/nvim/config/lsp.lua".source = ../config/nvim/config/lsp.lua;
-      ".config/nvim/config/options.lua".source = ../config/nvim/config/options.lua;
-      ".config/nvim/config/terminal.lua".source = ../config/nvim/config/terminal.lua;
-      ".config/nvim/config/formatters.lua".source = ../config/nvim/config/formatters.lua;
-      # TODO: nvimのシンボリックリンク管理なんとかならんか
-      ".config/nvim/plugins/plugins.lua".source = ../config/nvim/plugins/plugins.lua;
-      ".config/nvim/plugins/lualine.lua".source = ../config/nvim/plugins/lualine.lua;
-      ".config/nvim/plugins/nvim-tree.lua".source = ../config/nvim/plugins/nvim-tree.lua;
-      ".config/nvim/plugins/which-key.lua".source = ../config/nvim/plugins/which-key.lua;
+      # nvim
+      ".config/nvim" = {
+        source = ../config/nvim;
+        recursive = true;
+      };
 
       # wezterm
       ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua;
-      ".config/wezterm/keybinds.lua".source = ../config/wezterm/keybinds.lua;
 
       # tig
       ".tigrc".source = ../config/.tigrc;
@@ -89,7 +80,6 @@ in {
       pkgconf
       online-judge-tools
       mise
-      openssl
 
       # extensions
       bat
