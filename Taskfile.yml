@@ -16,14 +16,14 @@ tasks:
     sources:
       - "**/*.nix"
     cmds:
-      - find . -name '*.nix' | xargs alejandra
+      - find . -name '*.nix' -not -path './.git/*' | xargs alejandra
 
   format:lua:
     desc: "Format all Lua files with stylua"
     sources:
       - "**/*.lua"
     cmds:
-      - find . -name '*.lua' | xargs stylua
+      - find . -name '*.lua' -not -path './.git/*' | xargs stylua
 
   format:
     desc: "Format all Nix and Lua files"
@@ -32,12 +32,12 @@ tasks:
   check:nix:
     desc: "Check Nix formatting (dry-run)"
     cmds:
-      - find . -name '*.nix' | xargs alejandra --check
+      - find . -name '*.nix' -not -path './.git/*' | xargs alejandra --check
 
   check:lua:
     desc: "Check Lua formatting (dry-run)"
     cmds:
-      - find . -name '*.lua' | xargs stylua --check
+      - find . -name '*.lua' -not -path './.git/*' | xargs stylua --check
 
   check:
     desc: "Check formatting for all files"
