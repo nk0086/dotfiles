@@ -4,11 +4,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   username = "nk";
-in
-{
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;
