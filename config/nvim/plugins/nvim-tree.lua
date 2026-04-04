@@ -18,6 +18,6 @@ require("nvim-tree").setup({
 		highlight_git = true,
 	},
 	filters = {
-		dotfiles = true,
+		dotfiles = false,
 	},
 })

@@ -33,10 +33,10 @@ vim.keymap.set("v", "<leader>/", function()
 end, { noremap = true, silent = true, desc = "Toggle comment" })
 
 -- telescope
-vim.keymap.set("n", "<leader>p", function()
+vim.keymap.set("n", "<leader>ff", function()
 	require("telescope.builtin").find_files({ cwd = get_git_root() })
 end, { noremap = true, desc = "Find files" })
-vim.keymap.set("n", "<leader>ff", function()
+vim.keymap.set("n", "<leader>fw", function()
 	require("telescope.builtin").live_grep({ cwd = get_git_root() })
 end, { noremap = true, desc = "Live grep" })
 vim.keymap.set("n", "<leader>fg", function()

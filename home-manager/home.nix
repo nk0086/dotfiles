@@ -101,6 +101,7 @@ in {
       lua-language-server # Lua
       stylua
       go
+      gotools # goimports
       zig
       nim
       erlang_27 # Erlang

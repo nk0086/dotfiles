@@ -9,6 +9,14 @@
           packer-nvim
           tree-sitter-markdown
           tree-sitter-nix
+          tree-sitter-lua
+          tree-sitter-go
+          tree-sitter-python
+          tree-sitter-typescript
+          tree-sitter-javascript
+          tree-sitter-json
+          tree-sitter-yaml
+          tree-sitter-rust
           # ...
         ]))
       telescope-nvim
@@ -21,7 +29,6 @@
       biome
       nodePackages.eslint
       nodePackages.prettier
-      nodePackages.typescript-language-server
       # ...
     ];
   };
