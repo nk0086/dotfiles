@@ -39,6 +39,9 @@
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
     initContent = ''
+      export GPG_TTY=$(tty)
+      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+      gpgconf --launch gpg-agent
       eval "$(zoxide init zsh)"
       export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_token)
       export OPENAI_API_KEY=$(cat ~/.openai_api_key)
