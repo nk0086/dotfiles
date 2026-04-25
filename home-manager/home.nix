@@ -67,7 +67,7 @@ in {
       nix-zsh-completions
       alejandra # nix
       docker
-      ollama
+      # ollama
       # claude-code
       awscli2
       wezterm
