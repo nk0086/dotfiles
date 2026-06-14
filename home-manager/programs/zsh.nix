@@ -50,6 +50,7 @@
       export EDITOR="nvim"
       export CARGO_BUILD_JOBS=12;
       export PATH="$HOME/.local/bin:$PATH"
+      source $HOME/.safe-chain/scripts/init-posix.sh
     '';
   };
 }
