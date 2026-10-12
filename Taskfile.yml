@@ -2,8 +2,7 @@
 
 version: '3'
 
-vars:
-  TARGET: mac # mac / linux / linux-arm64
+dotenv: ['.env.local']
 
 tasks:
   default:

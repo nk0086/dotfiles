@@ -35,14 +35,15 @@ Nix Flake + Home Manager で管理する macOS (Apple Silicon) / Linux 向け do
 ```bash
 git clone https://github.com/nk0086/dotfiles.git ~/.config/dotfiles
 cd ~/.config/dotfiles
+test -e .env.local || cp .env.local.example .env.local
 ```
 
-`Taskfile.yml` の `TARGET` を使うマシンに合わせて一度設定する。
+`.env.local` の `TARGET` を使うマシンに合わせて一度設定する。
+このファイルは Git 管理外なので、`git pull` 後も設定が残る。
 `mac` は macOS / Apple Silicon、`linux` は Linux / x86_64、`linux-arm64` は Linux / aarch64。
 
-```yaml
-vars:
-  TARGET: mac
+```dotenv
+TARGET=mac
 ```
 
 以降は `TARGET` をコマンドに付けずに実行できる。
