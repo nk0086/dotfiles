@@ -29,7 +29,32 @@
       biome
       nodePackages.eslint
       nodePackages.prettier
-      # ...
+
+      # Executables used by config/nvim/config/lsp.lua.
+      lua-language-server
+      vtsls
+      pyright
+      gopls
+      rust-analyzer
+      nil
+      nimlangserver
+      gleam
+
+      # Formatters used by config/nvim/config/formatters.lua.
+      rustfmt
+      go # gofmt
+      gotools # goimports
+      black
+      ruff
+      nim # nimpretty and nimsuggest
+      alejandra
+      stylua
+
+      # rust-analyzer project discovery / proc macros and native lazy plugins.
+      cargo
+      rustc
+      gnumake
+      stdenv.cc
     ];
   };
 }

@@ -3,12 +3,12 @@
 version: '3'
 
 vars:
-  GREETING: Hello, World!
+  HOME_CONFIG: myHomeConfig
 
 tasks:
   default:
     cmds:
-      - echo "{{.GREETING}}"
+      - task --list
     silent: true
 
   format:nix:
@@ -39,17 +39,67 @@ tasks:
     cmds:
       - find . -name '*.lua' -not -path './.git/*' | xargs stylua --check
 
+  check:shell:
+    desc: "Test zsh startup with isolated fixture files and commands"
+    cmds:
+      - python3 tests/test_shell_startup.py
+
   check:
-    desc: "Check formatting for all files"
-    deps: [check:nix, check:lua]
+    desc: "Check formatting and portable shell startup"
+    deps: [check:nix, check:lua, check:shell]
+
+  build:
+    desc: "Build Home Manager without applying or updating dependencies"
+    cmds:
+      - nix build --no-update-lock-file ".#homeConfigurations.{{.HOME_CONFIG}}.activationPackage"
+
+  apply:
+    desc: "Apply Home Manager using the existing lock file"
+    cmds:
+      - nix run --no-update-lock-file --inputs-from . home-manager -- switch --no-update-lock-file --flake ".#{{.HOME_CONFIG}}"
+
+  build:macos:
+    desc: "Build the existing Apple Silicon macOS configuration"
+    cmds:
+      - task: build
+        vars: {HOME_CONFIG: myHomeConfig}
+
+  apply:macos:
+    desc: "Apply the existing Apple Silicon macOS configuration"
+    cmds:
+      - task: apply
+        vars: {HOME_CONFIG: myHomeConfig}
+
+  build:linux:
+    desc: "Build the x86_64 Linux configuration"
+    cmds:
+      - task: build
+        vars: {HOME_CONFIG: linuxHomeConfig}
+
+  apply:linux:
+    desc: "Apply the x86_64 Linux configuration"
+    cmds:
+      - task: apply
+        vars: {HOME_CONFIG: linuxHomeConfig}
+
+  build:linux-arm64:
+    desc: "Build the aarch64 Linux configuration"
+    cmds:
+      - task: build
+        vars: {HOME_CONFIG: linuxArmHomeConfig}
+
+  apply:linux-arm64:
+    desc: "Apply the aarch64 Linux configuration"
+    cmds:
+      - task: apply
+        vars: {HOME_CONFIG: linuxArmHomeConfig}
 
   sync:
-    desc: "Apply home-manager configuration"
+    desc: "Alias for apply (existing macOS default)"
     cmds:
-      - home-manager switch --flake .#myHomeConfig
+      - task: apply
 
   update:
-    desc: "Update flake and apply home-manager configuration"
+    desc: "Update flake.lock only; review the diff before build/apply"
     cmds:
       - nix flake update
-      - home-manager switch --flake .#myHomeConfig

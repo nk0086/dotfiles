@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -38,18 +38,20 @@
 
     # setup eval "$(zoxide init zsh)" in zsh.nix
     initContent = ''
-      export GPG_TTY=$(tty)
-      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-      gpgconf --launch gpg-agent
       eval "$(zoxide init zsh)"
-      export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ~/.github_token)
-      export OPENAI_API_KEY=$(cat ~/.openai_api_key)
+      if [[ -r "$HOME/.github_token" ]]; then
+        export GITHUB_PERSONAL_ACCESS_TOKEN=$(<"$HOME/.github_token")
+      fi
+      if [[ -r "$HOME/.openai_api_key" ]]; then
+        export OPENAI_API_KEY=$(<"$HOME/.openai_api_key")
+      fi
       export PATH="$HOME/.npm-global/bin:$PATH"
       export PATH=$HOME/.cargo/bin:$PATH
       export EDITOR="nvim"
-      export CARGO_BUILD_JOBS=12;
       export PATH="$HOME/.local/bin:$PATH"
-      source $HOME/.safe-chain/scripts/init-posix.sh
+      if [[ -r "$HOME/.safe-chain/scripts/init-posix.sh" ]]; then
+        source "$HOME/.safe-chain/scripts/init-posix.sh"
+      fi
     '';
   };
 }
