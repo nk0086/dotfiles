@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [../programs/wezterm.nix];
 
-  home.homeDirectory = "/Users/${config.home.username}";
   programs.zsh = {
     shellAliases.copy = "pbcopy";
     initContent = lib.mkBefore ''

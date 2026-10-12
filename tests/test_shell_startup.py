@@ -1,6 +1,7 @@
 """Exercise the custom zsh startup with fixture-only HOME and executables."""
 
 from pathlib import Path
+import os
 import shutil
 import subprocess
 import tempfile
@@ -52,6 +53,7 @@ print -r -- "${GPG_TTY:-absent}"
             stdin=subprocess.DEVNULL,
             capture_output=True,
             text=True,
+            timeout=10,
             check=True,
         )
         self.assertEqual(result.stderr, "")
@@ -69,15 +71,49 @@ print -r -- "${GPG_TTY:-absent}"
     def test_darwin_without_gpg_preserves_existing_socket(self):
         self.assertEqual(self.startup(darwin=True)[0], "existing-agent")
 
-    def test_present_files_and_safe_chain_with_spaces_in_home(self):
+    def test_startup_ignores_token_files_but_loads_safe_chain(self):
         (self.home / ".github_token").write_text("fixture-github\n")
         (self.home / ".openai_api_key").write_text("fixture-openai\n")
         script = self.home / ".safe-chain/scripts/init-posix.sh"
         script.parent.mkdir(parents=True)
         script.write_text("export SAFE_CHAIN_TEST=loaded\n")
-        # The user's cat alias must not interfere with reading optional files.
+        # Startup must not read either token file, even when they are present.
         self.command("cat", "exit 99")
-        self.assertEqual(self.startup()[1:4], ["fixture-github", "fixture-openai", "loaded"])
+        self.assertEqual(self.startup()[1:4], ["inherited-github", "inherited-openai", "loaded"])
+
+    def test_startup_does_not_populate_unset_tokens(self):
+        (self.home / ".github_token").write_text("fixture-github\n")
+        (self.home / ".openai_api_key").write_text("fixture-openai\n")
+        self.env.pop("GITHUB_PERSONAL_ACCESS_TOKEN")
+        self.env.pop("OPENAI_API_KEY")
+        self.assertEqual(self.startup()[1:3], ["", ""])
+
+    def test_startup_does_not_open_token_fifos(self):
+        # A read of either FIFO would block until the subprocess timeout.
+        os.mkfifo(self.home / ".github_token")
+        os.mkfifo(self.home / ".openai_api_key")
+        self.assertEqual(self.startup()[1:3], ["inherited-github", "inherited-openai"])
+
+    def test_startup_leaves_gh_and_token_helpers_undefined(self):
+        self.command("gh", 'printf "%s\\n" "${GH_TOKEN-absent}" "$@"')
+        result = subprocess.run(
+            [ZSH, "-f", "-c", COMMON_INIT + '''
+for name in gh _dotfiles_with_token with-openai-key with-github-token gh-with-token; do
+  if (( $+functions[$name] )); then
+    exit 1
+  fi
+done
+gh auth status
+'''],
+            env=self.env,
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=True,
+        )
+        self.assertEqual(result.stdout.splitlines(), ["absent", "auth", "status"])
+        self.assertEqual(result.stderr, "")
 
     def test_gpg_available_uses_agent_socket_without_a_terminal(self):
         self.command("gpgconf", '''case "$1" in

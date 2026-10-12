@@ -39,12 +39,7 @@
     # setup eval "$(zoxide init zsh)" in zsh.nix
     initContent = ''
       eval "$(zoxide init zsh)"
-      if [[ -r "$HOME/.github_token" ]]; then
-        export GITHUB_PERSONAL_ACCESS_TOKEN=$(<"$HOME/.github_token")
-      fi
-      if [[ -r "$HOME/.openai_api_key" ]]; then
-        export OPENAI_API_KEY=$(<"$HOME/.openai_api_key")
-      fi
+
       export PATH="$HOME/.npm-global/bin:$PATH"
       export PATH=$HOME/.cargo/bin:$PATH
       export EDITOR="nvim"

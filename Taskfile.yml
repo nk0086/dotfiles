@@ -2,8 +2,7 @@
 
 version: '3'
 
-vars:
-  HOME_CONFIG: myHomeConfig
+dotenv: ['.env.local']
 
 tasks:
   default:
@@ -44,60 +43,41 @@ tasks:
     cmds:
       - python3 tests/test_shell_startup.py
 
+  check:tasks:
+    desc: "Test target selection and lock-safe commands using Task dry-runs"
+    cmds:
+      - python3 tests/test_taskfile.py
+
+  check:identity:
+    desc: "Test HOME/USER evaluation with isolated environment fixtures"
+    cmds:
+      - python3 tests/test_home_identity.py
+
   check:
-    desc: "Check formatting and portable shell startup"
-    deps: [check:nix, check:lua, check:shell]
+    desc: "Check formatting, portable shell startup, identity, and Task commands"
+    deps: [check:nix, check:lua, check:shell, check:tasks, check:identity]
 
   build:
     desc: "Build Home Manager without applying or updating dependencies"
+    requires:
+      vars:
+        - name: TARGET
+          enum: [mac, linux, linux-arm64]
     cmds:
-      - nix build --no-update-lock-file ".#homeConfigurations.{{.HOME_CONFIG}}.activationPackage"
+      - nix build --impure --no-update-lock-file ".#homeConfigurations.{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}.activationPackage"
 
   apply:
     desc: "Apply Home Manager using the existing lock file"
+    aliases: [sync]
+    preconditions:
+      - sh: test "$(uname -s):$(uname -m)" = '{{index (dict "mac" "Darwin:arm64" "linux" "Linux:x86_64" "linux-arm64" "Linux:aarch64") .TARGET}}'
+        msg: "TARGET must match this host's OS/CPU. Use build for a remote target; run apply on the target host."
+    requires:
+      vars:
+        - name: TARGET
+          enum: [mac, linux, linux-arm64]
     cmds:
-      - nix run --no-update-lock-file --inputs-from . home-manager -- switch --no-update-lock-file --flake ".#{{.HOME_CONFIG}}"
-
-  build:macos:
-    desc: "Build the existing Apple Silicon macOS configuration"
-    cmds:
-      - task: build
-        vars: {HOME_CONFIG: myHomeConfig}
-
-  apply:macos:
-    desc: "Apply the existing Apple Silicon macOS configuration"
-    cmds:
-      - task: apply
-        vars: {HOME_CONFIG: myHomeConfig}
-
-  build:linux:
-    desc: "Build the x86_64 Linux configuration"
-    cmds:
-      - task: build
-        vars: {HOME_CONFIG: linuxHomeConfig}
-
-  apply:linux:
-    desc: "Apply the x86_64 Linux configuration"
-    cmds:
-      - task: apply
-        vars: {HOME_CONFIG: linuxHomeConfig}
-
-  build:linux-arm64:
-    desc: "Build the aarch64 Linux configuration"
-    cmds:
-      - task: build
-        vars: {HOME_CONFIG: linuxArmHomeConfig}
-
-  apply:linux-arm64:
-    desc: "Apply the aarch64 Linux configuration"
-    cmds:
-      - task: apply
-        vars: {HOME_CONFIG: linuxArmHomeConfig}
-
-  sync:
-    desc: "Alias for apply (existing macOS default)"
-    cmds:
-      - task: apply
+      - nix run --no-update-lock-file --inputs-from . home-manager -- switch --impure --no-update-lock-file --flake ".#{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}"
 
   update:
     desc: "Update flake.lock only; review the diff before build/apply"
