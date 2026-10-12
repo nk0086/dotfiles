@@ -22,7 +22,6 @@
 
     shellAliases = {
       cat = "bat";
-      copy = "pbcopy";
       ls = "eza --icons always --classify always --ignore-glob='.DS_Store'";
       la = "eza --icons always --classify always --all --ignore-glob='.DS_Store'";
       ll = "eza --icons always --long --all --git --ignore-glob='.DS_Store'";

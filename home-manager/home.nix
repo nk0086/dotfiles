@@ -1,12 +1,8 @@
 {
   inputs,
-  lib,
-  config,
   pkgs,
   ...
-}: let
-  username = "nk";
-in {
+}: {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -26,8 +22,7 @@ in {
   ];
 
   home = {
-    username = username;
-    homeDirectory = "/Users/${username}";
+    username = "nk";
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
@@ -38,9 +33,6 @@ in {
         source = ../config/nvim;
         recursive = true;
       };
-
-      # wezterm
-      ".config/wezterm/wezterm.lua".source = ../config/wezterm/wezterm.lua;
 
       # tig
       ".tigrc".source = ../config/.tigrc;
@@ -70,7 +62,6 @@ in {
       # ollama
       # claude-code
       awscli2
-      wezterm
       tig
       cmake
       luajitPackages.luarocks_bootstrap
