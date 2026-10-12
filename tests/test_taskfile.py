@@ -67,8 +67,8 @@ class TaskfileTest(unittest.TestCase):
             check=False,
         )
 
-    def command(self, task, target=None, *extra_vars):
-        result = self.dry_run(task, target, *extra_vars)
+    def command(self, task, target=None, *extra_vars, host=None):
+        result = self.dry_run(task, target, *extra_vars, host=host)
         output = result.stdout + result.stderr
         self.assertEqual(result.returncode, 0, output)
         lines = output.strip().splitlines()
@@ -102,6 +102,19 @@ class TaskfileTest(unittest.TestCase):
                 self.assertEqual(
                     self.command(task), self.expected_command(task, TARGETS["mac"])
                 )
+
+    def test_target_can_be_fixed_in_the_taskfile(self):
+        path = self.root / "Taskfile.yml"
+        original = path.read_text()
+        self.assertIn("  TARGET: mac", original)
+        for target, config in TARGETS.items():
+            path.write_text(original.replace("  TARGET: mac", f"  TARGET: {target}", 1))
+            for task in ("build", "apply", "sync"):
+                with self.subTest(task=task, target=target):
+                    self.assertEqual(
+                        self.command(task, host=HOSTS[target]),
+                        self.expected_command(task, config),
+                    )
 
     def test_sync_alias_honors_target(self):
         for target, config in TARGETS.items():

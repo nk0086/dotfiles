@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  TARGET: mac
+  TARGET: mac # mac / linux / linux-arm64
 
 tasks:
   default:
