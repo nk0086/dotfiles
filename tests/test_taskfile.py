@@ -1,4 +1,4 @@
-"""Check Task's rendered commands without running Nix or applying a profile."""
+"""Check rendered commands and host guards with fixture uname; never run Nix."""
 
 import os
 from pathlib import Path
@@ -17,6 +17,12 @@ TARGETS = {
     "linux-arm64": "linuxArmHomeConfig",
 }
 
+HOSTS = {
+    "mac": ("Darwin", "arm64"),
+    "linux": ("Linux", "x86_64"),
+    "linux-arm64": ("Linux", "aarch64"),
+}
+
 
 class TaskfileTest(unittest.TestCase):
     def setUp(self):
@@ -30,16 +36,31 @@ class TaskfileTest(unittest.TestCase):
         for name in ("TARGET", "HOME_CONFIG", "TASK_DRY", "TASK_SILENT"):
             self.env.pop(name, None)
         self.env["NO_COLOR"] = "1"
+        self.bin = self.root / "bin"
+        self.bin.mkdir()
+        uname = self.bin / "uname"
+        uname.write_text(
+            '#!/bin/sh\ncase "$1" in\n'
+            '  -s) printf "%s\\n" "$TEST_UNAME_SYSTEM" ;;\n'
+            '  -m) printf "%s\\n" "$TEST_UNAME_MACHINE" ;;\n'
+            '  *) exit 1 ;;\nesac\n'
+        )
+        uname.chmod(0o755)
+        self.env["PATH"] = str(self.bin) + os.pathsep + self.env["PATH"]
 
-    def dry_run(self, task, target=None, *extra_vars):
+    def dry_run(self, task, target=None, *extra_vars, host=None):
         args = [TASK, "--dry", task]
         if target is not None:
             args.append("TARGET=" + target)
         args.extend(extra_vars)
+        env = self.env.copy()
+        env["TEST_UNAME_SYSTEM"], env["TEST_UNAME_MACHINE"] = (
+            host if host is not None else HOSTS.get(target, HOSTS["mac"])
+        )
         return subprocess.run(
             args,
             cwd=self.root,
-            env=self.env,
+            env=env,
             capture_output=True,
             text=True,
             timeout=30,
@@ -58,12 +79,12 @@ class TaskfileTest(unittest.TestCase):
     def expected_command(self, task, config):
         if task == "build":
             return [
-                "nix", "build", "--no-update-lock-file",
+                "nix", "build", "--impure", "--no-update-lock-file",
                 f".#homeConfigurations.{config}.activationPackage",
             ]
         return [
             "nix", "run", "--no-update-lock-file", "--inputs-from", ".",
-            "home-manager", "--", "switch", "--no-update-lock-file",
+            "home-manager", "--", "switch", "--impure", "--no-update-lock-file",
             "--flake", f".#{config}",
         ]
 
@@ -107,6 +128,26 @@ class TaskfileTest(unittest.TestCase):
                     self.assertNotEqual(result.returncode, 0, output)
                     self.assertIn("TARGET has an invalid value", output)
                     self.assertNotIn("task: [", output)
+
+    def test_apply_and_sync_reject_wrong_host_os_or_cpu(self):
+        for task in ("apply", "sync"):
+            for target in TARGETS:
+                for host in (*HOSTS.values(), ("Darwin", "x86_64"), ("Linux", "riscv64")):
+                    if host == HOSTS[target]:
+                        continue
+                    with self.subTest(task=task, target=target, host=host):
+                        result = self.dry_run(task, target, host=host)
+                        output = result.stdout + result.stderr
+                        self.assertNotEqual(result.returncode, 0, output)
+                        self.assertIn("TARGET must match this host's OS/CPU", output)
+                        self.assertNotIn("task: [", output)
+
+    def test_build_allows_a_different_host_for_remote_builders(self):
+        for target in TARGETS:
+            with self.subTest(target=target):
+                result = self.dry_run("build", target, host=("OtherOS", "othercpu"))
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("--impure", result.stdout + result.stderr)
 
     def test_update_only_updates_the_lock_file(self):
         self.assertEqual(self.command("update"), ["nix", "flake", "update"])

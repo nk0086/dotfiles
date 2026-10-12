@@ -49,9 +49,14 @@ tasks:
     cmds:
       - python3 tests/test_taskfile.py
 
+  check:identity:
+    desc: "Test HOME/USER evaluation with isolated environment fixtures"
+    cmds:
+      - python3 tests/test_home_identity.py
+
   check:
-    desc: "Check formatting, portable shell startup, and Task commands"
-    deps: [check:nix, check:lua, check:shell, check:tasks]
+    desc: "Check formatting, portable shell startup, identity, and Task commands"
+    deps: [check:nix, check:lua, check:shell, check:tasks, check:identity]
 
   build:
     desc: "Build Home Manager without applying or updating dependencies"
@@ -60,17 +65,20 @@ tasks:
         - name: TARGET
           enum: [mac, linux, linux-arm64]
     cmds:
-      - nix build --no-update-lock-file ".#homeConfigurations.{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}.activationPackage"
+      - nix build --impure --no-update-lock-file ".#homeConfigurations.{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}.activationPackage"
 
   apply:
     desc: "Apply Home Manager using the existing lock file"
     aliases: [sync]
+    preconditions:
+      - sh: test "$(uname -s):$(uname -m)" = '{{index (dict "mac" "Darwin:arm64" "linux" "Linux:x86_64" "linux-arm64" "Linux:aarch64") .TARGET}}'
+        msg: "TARGET must match this host's OS/CPU. Use build for a remote target; run apply on the target host."
     requires:
       vars:
         - name: TARGET
           enum: [mac, linux, linux-arm64]
     cmds:
-      - nix run --no-update-lock-file --inputs-from . home-manager -- switch --no-update-lock-file --flake ".#{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}"
+      - nix run --no-update-lock-file --inputs-from . home-manager -- switch --impure --no-update-lock-file --flake ".#{{index (dict "mac" "myHomeConfig" "linux" "linuxHomeConfig" "linux-arm64" "linuxArmHomeConfig") .TARGET}}"
 
   update:
     desc: "Update flake.lock only; review the diff before build/apply"

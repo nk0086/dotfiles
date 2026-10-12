@@ -40,49 +40,6 @@
     initContent = ''
       eval "$(zoxide init zsh)"
 
-      # Read a token only on explicit invocation, inside a disposable subshell.
-      _dotfiles_with_token() (
-        set +x
-        emulate -L zsh
-        unsetopt verbose
-        local token_name="$1" token_file="$2"
-        local +x token
-        shift 2
-        if (( $# == 0 )); then
-          print -u2 -- 'A command is required.'
-          return 2
-        fi
-        case "$token_name" in
-          GH_TOKEN|GITHUB_PERSONAL_ACCESS_TOKEN|OPENAI_API_KEY) ;;
-          *) print -u2 -- 'Unsupported token variable.'; return 2 ;;
-        esac
-        if [[ ! -f "$token_file" || ! -r "$token_file" ]]; then
-          print -u2 -- "Token file is missing or unreadable: $token_file"
-          return 1
-        fi
-        if ! token=$(<"$token_file"); then
-          print -u2 -- "Could not read token file: $token_file"
-          return 1
-        fi
-        if [[ -z "$token" || "$token" == *[[:space:]]* ]]; then
-          print -u2 -- "Token file must contain one nonempty token: $token_file"
-          return 1
-        fi
-        # export is a shell builtin: the value never becomes a process argument.
-        export "$token_name=$token"
-        command "$@"
-      )
-
-      with-openai-key() {
-        _dotfiles_with_token OPENAI_API_KEY "$HOME/.openai_api_key" "$@"
-      }
-      with-github-token() {
-        _dotfiles_with_token GITHUB_PERSONAL_ACCESS_TOKEN "$HOME/.github_token" "$@"
-      }
-      gh-with-token() {
-        _dotfiles_with_token GH_TOKEN "$HOME/.github_token" gh "$@"
-      }
-
       export PATH="$HOME/.npm-global/bin:$PATH"
       export PATH=$HOME/.cargo/bin:$PATH
       export EDITOR="nvim"

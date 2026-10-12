@@ -2,7 +2,18 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  # Flake evaluation is pure by default. Build/switch must opt into --impure
+  # so that this profile belongs to the invoking user's environment.
+  requiredEnv = name: let
+    value = builtins.getEnv name;
+  in
+    if value == ""
+    then throw "dotfiles: ${name} is empty or unavailable; export ${name} for the intended user and evaluate with --impure (do not use sudo)."
+    else value;
+  username = requiredEnv "USER";
+  homeDirectory = requiredEnv "HOME";
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -22,7 +33,11 @@
   ];
 
   home = {
-    username = "nk";
+    inherit username;
+    homeDirectory =
+      if builtins.substring 0 1 homeDirectory == "/"
+      then homeDirectory
+      else throw "dotfiles: HOME must be an absolute path for the intended user.";
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
