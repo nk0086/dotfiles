@@ -1,5 +1,5 @@
 {
-  description = "Minimal package definition for aarch64-darwin";
+  description = "Home Manager configurations for macOS and Linux";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -16,22 +16,21 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "aarch64-darwin";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-  in {
-    homeConfigurations = {
-      home-manager.backupFileExtension = ".bak";
-      myHomeConfig = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+    mkHome = system: platform:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./home-manager/home.nix
+          platform
         ];
       };
+  in {
+    homeConfigurations = {
+      # Keep the existing macOS entry point.
+      myHomeConfig = mkHome "aarch64-darwin" ./home-manager/platforms/darwin.nix;
+      linuxHomeConfig = mkHome "x86_64-linux" ./home-manager/platforms/linux.nix;
+      linuxArmHomeConfig = mkHome "aarch64-linux" ./home-manager/platforms/linux.nix;
     };
   };
 }
